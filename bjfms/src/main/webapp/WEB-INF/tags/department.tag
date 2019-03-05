@@ -1,7 +1,7 @@
 <%@ tag import="org.apache.commons.lang3.StringUtils" %>
 <%@ tag import="java.util.List" %>
 <%@ tag import="com.axboot.bjfms.utils.DepartmentUtils" %>
-<%@ tag import="com.axboot.bjfms.domain.employee.department.Department" %>
+<%@ tag import="com.axboot.bjfms.domain.base.department.Department" %>
 <%@ tag language="java" pageEncoding="UTF-8" body-content="empty" %>
 <%@ attribute name="noDepartment" required="false" %>
 <%@ attribute name="name" required="false" %>

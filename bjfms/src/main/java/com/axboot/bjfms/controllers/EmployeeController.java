@@ -37,8 +37,9 @@ public class EmployeeController extends BaseController {
     } 
 
     @RequestMapping(method = {RequestMethod.PUT}, produces = APPLICATION_JSON)
-    public ApiResponse save(@RequestBody List<Employee> request) throws Exception {
-        employeeService.saveEmployee(request);
-        return ok();
+//  public ApiResponse save(@RequestBody List<Employee> request) throws Exception {
+    public ApiResponse save(@RequestBody Employee request) throws Exception {
+      employeeService.saveEmployee(request);
+      return ok();
     }
 }

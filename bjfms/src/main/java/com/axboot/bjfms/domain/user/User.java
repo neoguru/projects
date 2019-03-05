@@ -47,7 +47,7 @@ public class User extends BaseJpaModel<String> {
     @ColumnPosition(3)
     private String userPs;
 
-    @Column(name = "NO_EMPLOYEE", precision = 10)
+    @Column(name = "NO_EMPLOYEE", precision = 10, nullable = false)
     @Comment(value = "사원번호")
     @ColumnPosition(4)
     private Integer noEmployee;

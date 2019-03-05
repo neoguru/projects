@@ -15,7 +15,10 @@ import com.axboot.bjfms.domain.base.notice.attach.QNoticeAttach;
 import com.axboot.bjfms.domain.base.scheduler.QScheduler;
 import com.axboot.bjfms.domain.base.scheduler.repeat.QSchedulerRepeat;
 import com.axboot.bjfms.domain.base.scheduler.repeat.change.QSchedulerRepeatChange;
+import com.axboot.bjfms.domain.base.department.QDepartment;
 import com.axboot.bjfms.domain.base.employee.QEmployee;
+import com.axboot.bjfms.domain.base.employee.gen.QNoEmployeeGen;
+import com.axboot.bjfms.domain.base.employee.gen.QNoWorkerGen;
 
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
@@ -40,8 +43,12 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QScheduler qScheduler = QScheduler.scheduler;
     protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
     protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
+
+    protected QDepartment qDepartment = QDepartment.department;
     
     protected QEmployee qEmployee = QEmployee.employee;
+    protected QNoEmployeeGen qNoEmployeeGen = QNoEmployeeGen.noEmployeeGen;
+    protected QNoWorkerGen qNoWorkerGen = QNoWorkerGen.noWorkerGen;
         
     protected AXBootJPAQueryDSLRepository<T, ID> repository;
 

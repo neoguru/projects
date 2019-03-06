@@ -9,11 +9,24 @@ import com.axboot.freelancer.domain.user.QUser;
 import com.axboot.freelancer.domain.user.auth.QUserAuth;
 import com.axboot.freelancer.domain.user.auth.menu.QAuthGroupMenu;
 import com.axboot.freelancer.domain.user.role.QUserRole;
+
 import com.axboot.freelancer.domain.notice.QNotice;
 import com.axboot.freelancer.domain.notice.attach.QNoticeAttach;
 import com.axboot.freelancer.domain.scheduler.QScheduler;
 import com.axboot.freelancer.domain.scheduler.repeat.QSchedulerRepeat;
 import com.axboot.freelancer.domain.scheduler.repeat.change.QSchedulerRepeatChange;
+
+
+import com.axboot.freelancer.domain.base.developer.QDeveloper;
+import com.axboot.freelancer.domain.base.developer.history.QDeveloperHistory;
+import com.axboot.freelancer.domain.base.partner.QPartner;
+import com.axboot.freelancer.domain.base.partner.charge.QPartnerCharge;
+import com.axboot.freelancer.domain.base.project.QProject;
+
+import com.axboot.freelancer.domain.request.QRequest;
+import com.axboot.freelancer.domain.request.detail.QRequestDetail;
+import com.axboot.freelancer.domain.apply.QApply;
+
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
 
@@ -37,6 +50,16 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QScheduler qScheduler = QScheduler.scheduler;
     protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
     protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
+
+    protected QDeveloper qDeveloper = QDeveloper.developer;
+    protected QDeveloperHistory qDeveloperHistory = QDeveloperHistory.developerHistory;
+    protected QPartner qPartner = QPartner.partner;
+    protected QPartnerCharge qPartnerCharge = QPartnerCharge.partnerCharge;
+    protected QProject qProject = QProject.project;
+
+    protected QRequest qRequest = QRequest.request;
+    protected QRequestDetail qRequestDetail = QRequestDetail.requestDetail;
+    protected QApply qApply = QApply.apply;
     
     protected AXBootJPAQueryDSLRepository<T, ID> repository;
 

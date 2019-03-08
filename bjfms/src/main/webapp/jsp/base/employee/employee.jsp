@@ -22,7 +22,7 @@
             <ax:form name="searchView0">
                 <ax:tbl clazz="ax-search-tbl" minWidth="100px">
                     <ax:tr>
-                        <ax:td label="ax.admin.employee.department" width="220px">
+                       <ax:td label="ax.admin.employee.department" width="220px">
                            	 <ax:department id="headNoDepartment" dataPath="headNoDepartment" emptyText="전체" clazz="form-control W100"/>
                         </ax:td>
                         <ax:td label='ax.admin.employee.nmEmployee' width="250px">
@@ -99,30 +99,24 @@
                                     		<input type="text" name="noEmployee" data-ax-path="noEmployee" class="form-control" value="" readonly="readonly"/>
                                 		</ax:td>
                                 		<ax:td label="ax.admin.employee.nmEmployee" width="240px">
-                                    		<input type="text" name="nmEmployeeKor" data-ax-path="nmEmployeeKor" class="form-control" value="" data-ax-validate="required" title="사원명" style="border-color:Orange;"/>
+                                    		<input type="text" name="nmEmployee" data-ax-path="nmEmployee" class="form-control" value="" data-ax-validate="required" title="사원명" style="border-color:Orange;"/>
                                 		</ax:td>
                                 		<ax:td label="ax.admin.employee.nmEmployeeEng" width="240px">
                                     		<input type="text" name="nmEmployeeEng" data-ax-path="nmEmployeeEng" class="form-control" value=""/>
-                                		</ax:td>                    
+                                		</ax:td>   
+                                		<ax:td label="ax.admin.noRegist" width="240px">
+                            					<div class="input-group">
+                                				<input type="text" name="noRegist" data-ax-path="noRegist" data-ax5formatter-custom="noRegist" class="form-control" data-ax-validate="required" title="주민등록번호"  style="text-align:center;border-color:Orange;"/>                                	
+                            					</div>
+                                		</ax:td>                                                 
                             		</ax:tr>
                             		
                             		<ax:tr labelWidth="100px">
-                                		<ax:td label="ax.admin.noRegist" width="240px">
-                            				<div class="input-group">
-                                				<input type="text" name="noRegist" data-ax-path="noRegist" data-ax5formatter-custom="noRegist" class="form-control" data-ax-validate="required" title="주민등록번호"  style="text-align:center;border-color:Orange;"/>                                	
-                            				</div>
-                                		</ax:td>                                
-                                		<ax:td label="ax.admin.sex" width="240px">
-                                	 		<ax:common-code groupCd="CD_SEX" dataPath="cdSex" emptyText="선택" clazz="form-control"/>
-                                		</ax:td>        
                                 		<ax:td label="ax.admin.noMobile" width="240px">
-                            				<div class="input-group">
+                            					<div class="input-group">
                                 				<input type="text" name="noMobile" class="form-control" data-ax-path="noMobile" data-ax5formatter="phone" data-ax5="formatter"  data-ax-validate="required" title="휴대폰번호" style="border-color:Orange;"/>                                	
-                            				</div>
-                                		</ax:td>                                                                 
-                            		</ax:tr>
-                         
-                            		<ax:tr labelWidth="100px">
+                            					</div>
+                                		</ax:td>                                   
                                 		<ax:td label="ax.admin.employee.department" width="240px">
                            	 				<ax:department id="noDepartment" name="noDepartment" dataPath="noDepartment" clazz="form-control W120" emptyText="선택"  style="border-color:Orange;"/>
                            	 				<!--<ax:department id="noDepartment" name="noDepartment" dataPath="noDepartment" clazz="form-control W120" defaultValue="100203" style="border-color:Orange;"/>-->
@@ -148,11 +142,17 @@
                                 		<ax:td label="ax.admin.employee.workDiv" width="240px">
                                 	 		<ax:common-code groupCd="CD_WORKDIV" dataPath="cdWorkdiv" emptyText="선택" clazz="form-control"/>
                                 		</ax:td>
+                                		<ax:td label="ax.admin.employee.cdPosition" width="240px">
+                                	 		<ax:common-code groupCd="CD_POSITION" dataPath="cdPosition" emptyText="선택" clazz="form-control"/>
+                                		</ax:td>
                             		</ax:tr>
                             
                             		<ax:tr labelWidth="100px">
-                                		<ax:td label="ax.admin.employee.cdPosition" width="240px">
-                                	 		<ax:common-code groupCd="CD_POSITION" dataPath="cdPosition" emptyText="선택" clazz="form-control"/>
+                                		<ax:td label="ax.admin.employee.ynForeign" width="240px">
+                                	 		<ax:common-code groupCd="YES_NO" dataPath="ynForeign" emptyText="선택" clazz="form-control"/>
+                                		</ax:td>
+                                		<ax:td label="ax.admin.nation" width="240px">
+                                	 		<input type="text" name="nmNation" data-ax-path="nmNation" class="form-control" value=""/>                                	
                                 		</ax:td>
                                 		<ax:td label="ax.admin.employee.ynRetire" width="240px">
                                 	 		<ax:common-code groupCd="YN_RETIRE" dataPath="ynRetire" clazz="form-control" style="border-color:Orange;"/>
@@ -166,23 +166,14 @@
                             		</ax:tr>
                             
                             		<ax:tr labelWidth="100px">
-                                		<ax:td label="ax.admin.noAccount" width="240px">
-                                	 		<input type="text" name="noAccount" data-ax-path="noAccount" class="form-control" value=""/>                                	
-                                		</ax:td>
                                 		<ax:td label="ax.admin.nmBank" width="240px">
                                 	 		<ax:common-code groupCd="CD_BANK" dataPath="cdBank" emptyText="선택" clazz="form-control"/>
                                 		</ax:td>
+                                		<ax:td label="ax.admin.noAccount" width="480px">
+                                	 		<input type="text" name="noAccount" data-ax-path="noAccount" class="form-control" value=""/>                                	
+                                		</ax:td>
                                 		<ax:td label="ax.admin.repositor" width="240px">
                                 	 		<input type="text" name="repositor" data-ax-path="repositor" class="form-control" value=""/>                                	
-                                		</ax:td>
-                            		</ax:tr>
-                            
-                            		<ax:tr labelWidth="100px">
-                                		<ax:td label="ax.admin.employee.ynForeign" width="240px">
-                                	 		<ax:common-code groupCd="YES_NO" dataPath="ynForeign" emptyText="선택" clazz="form-control"/>
-                                		</ax:td>
-                                		<ax:td label="ax.admin.nation" width="240px">
-                                	 		<input type="text" name="nmNation" data-ax-path="nmNation" class="form-control" value=""/>                                	
                                 		</ax:td>
                             		</ax:tr>
                             

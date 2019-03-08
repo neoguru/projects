@@ -363,7 +363,7 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
             sortable: true,
             target: $('[data-ax5grid="grid-view-01"]'),
             columns: [
-                {key: "nmEmployeeKor", label: COL("employee.nmEmployee"), width: 80, align: "center"},
+                {key: "nmEmployee", label: COL("employee.nmEmployee"), width: 80, align: "center"},
                 {key: "noEmployee", label: COL("employee.noEmployee"), width: 80, align: "center"},
                 /*
                 {key: "noDepartment", label: COL("employee.department"), width: 80, align: "center",  formatter: function () {                	
@@ -648,10 +648,14 @@ fnObj.formView02 = axboot.viewExtend(axboot.formView, {
 
         if (typeof data === "undefined") data = this.getDefaultData();
         data = $.extend({}, data);
+
+//    		 console.log(data);
+        if (data.authList[0].grpAuthCd) 
+        		data.grpAuthCd = data.authList[0].grpAuthCd;
         
-//        data.grpAuthCd = data.authList[0].grpAuthCd;
         ACTIONS.dispatch(ACTIONS.ROLE_GRID_DATA_INIT, {userCd: data.userCd, roleList: data.roleList});
 
+//		 	 console.log(data.grpAuthCd);
         data.userPs = "";
         data.password_change = "";
         this.target.find('[data-ax-path="userPs"]').attr("readonly", "readonly");

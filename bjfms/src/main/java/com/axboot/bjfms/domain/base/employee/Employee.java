@@ -33,10 +33,10 @@ public class Employee extends BaseJpaModel<Integer> {
 	@ColumnPosition(1)
 	private Integer noEmployee;
 
-	@Column(name = "NM_EMPLOYEE_KOR", length = 30, nullable = false)
+	@Column(name = "NM_EMPLOYEE", length = 30, nullable = false)
 	@Comment(value = "사원명(한글)")
 	@ColumnPosition(2)
-	private String nmEmployeeKor;
+	private String nmEmployee;
 
 	@Column(name = "NM_EMPLOYEE_ENG", length = 30)
 	@Comment(value = "사원명(영문)")

@@ -116,7 +116,7 @@ public class EmployeeService extends BaseService<Employee, Integer> {
            builder.and(qEmployee.ynRetire.eq(headYnRetire));
        }  
        if (isNotEmpty(headNmEmployee)){
-           builder.and(qEmployee.nmEmployeeKor.like(Expressions.asString("%").concat(headNmEmployee).concat("%")));
+           builder.and(qEmployee.nmEmployee.like(Expressions.asString("%").concat(headNmEmployee).concat("%")));
        }  
        if (isNotEmpty(headNoRegist)){
            builder.and(qEmployee.noRegist.like(Expressions.asString("%").concat(headNoRegist).concat("%")));

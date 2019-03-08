@@ -17,13 +17,13 @@ public class DepartmentUtils {
 
     public static List<Department> get() {
         RequestParams<Department> requestParams = new RequestParams<>(Department.class);
-        requestParams.put("ynUse", AXBootTypes.Used.YES.getLabel());
+        requestParams.put("useYn", AXBootTypes.Used.YES.getLabel());
         return getService().gets(requestParams);
     }
 
     public static Map<Integer, List<Department>> getAllByMap() {
         RequestParams<Department> requestParams = new RequestParams<>(Department.class);
-        requestParams.put("ynUse", AXBootTypes.Used.YES.getLabel());
+        requestParams.put("useYn", AXBootTypes.Used.YES.getLabel());
         List<Department> departments = getService().gets(requestParams);
 
         Map<Integer, List<Department>> departmentMap = departments.stream().collect(groupingBy(Department::getNoDepartment));

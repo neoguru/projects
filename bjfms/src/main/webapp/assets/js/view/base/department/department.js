@@ -3,7 +3,7 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     PAGE_SEARCH: function (caller, act, data) {
         axboot.ajax({
             type: "GET",
-            url: ["samples", "parent"],
+            url: "/api/v1/department",
             data: caller.searchView.getData(),
             callback: function (res) {
                 caller.gridView01.setData(res);
@@ -19,12 +19,13 @@ var ACTIONS = axboot.actionExtend(fnObj, {
         return false;
     },
     PAGE_SAVE: function (caller, act, data) {
-        var saveList = [].concat(caller.gridView01.getData("modified"));
+    	
+        var saveList = [].concat(caller.gridView01.getData());
         saveList = saveList.concat(caller.gridView01.getData("deleted"));
 
         axboot.ajax({
             type: "PUT",
-            url: ["samples", "parent"],
+            url: "/api/v1/department",
             data: JSON.stringify(saveList),
             callback: function (res) {
                 ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
@@ -110,17 +111,24 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
         var _this = this;
 
         this.target = axboot.gridBuilder({
-            showRowSelector: true,
+//            showRowSelector: false,
             frozenColumnIndex: 0,
-            multipleSelect: true,
+            multipleSelect: false,
             target: $('[data-ax5grid="grid-view-01"]'),
             columns: [
-                {key: "key", label: "KEY", width: 160, align: "left", editor: "text"},
-                {key: "value", label: "VALUE", width: 350, align: "left", editor: "text"},
-                {key: "etc1", label: "ETC1", width: 100, align: "center", editor: "text"},
-                {key: "etc2", label: "ETC2", width: 100, align: "center", editor: "text"},
-                {key: "etc3", label: "ETC3", width: 100, align: "center", editor: "text"},
-                {key: "etc4", label: "ETC4", width: 100, align: "center", editor: "text"}
+                {key: "noDepartment", label: COL("noDepartment"), width: 100, align: "center"},
+                {key: "nmDepartment", label: COL("nmDepartment"), width: 150, align: "center", editor: "text"},
+                {key: "noSort", label: COL("sort"), width: 100, align: "center", editor: "text"},
+                {key: "useYn", label:COL("use.or.not"), width: 100, align: "center", formatter: function () {
+                    return parent.COMMON_CODE["USE_YN"].map[this.value]}, editor: {
+                        type: "select", config: {
+                            columnKeys: {
+                                optionValue: "code", optionText: "name"
+                            	},
+                            options: parent.COMMON_CODE["USE_YN"]
+                        	}	
+                   }},
+                {key: "remark", label: COL("remark"), width: 800, align: "center", editor: "text"}
             ],
             body: {
                 onClick: function () {
@@ -145,7 +153,7 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
         if (_type == "modified" || _type == "deleted") {
             list = ax5.util.filter(_list, function () {
                 delete this.deleted;
-                return this.key;
+                return this.noDepartment;
             });
         } else {
             list = _list;

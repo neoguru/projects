@@ -17,8 +17,8 @@
     	System.out.println(loginUser.getDeviceType());
 
     	if (loginUser.getDeviceType().toString() == "COMPUTER")
-//    		lastNavigatedPage = "/jsp/main.jsp";										 // computer login : axboot application framework : top menu view 
-    		lastNavigatedPage = "/jsp/main_1.jsp";					 				// computer login : shamcey application framework : top menu view
+    		lastNavigatedPage = "/jsp/main.jsp";										 // computer login : axboot application framework : top menu view 
+//    		lastNavigatedPage = "/jsp/main_1.jsp";					 				// computer login : shamcey application framework : top menu view
     	else
 //    		lastNavigatedPage = "/jsp/mobile_main.jsp";						// mobile login : adminLTE application framework : top menu not view
     		lastNavigatedPage = "/jsp/mobile_main_1.jsp";					// mobile login : shamcey application framework : top menu not view

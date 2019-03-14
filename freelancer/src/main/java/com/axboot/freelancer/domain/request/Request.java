@@ -60,7 +60,7 @@ public class Request extends BaseJpaModel<Integer> {
 	private String devLang;
 
 	@Column(name = "UI_TOOL", length = 50)
-	@Comment(value = "UI")
+	@Comment(value = "UI Tool")
 	private String uiTool;
 
 	@Column(name = "SOLUTION", length = 50)

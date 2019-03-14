@@ -1,7 +1,7 @@
 package com.axboot.freelancer.domain.base.developer.history;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;
-import com.axboot.freelancer.domain.SimpleJpaModel;
+import com.axboot.freelancer.domain.BaseJpaModel;
 import lombok.*;
 import org.apache.ibatis.type.Alias;
 import org.hibernate.annotations.DynamicInsert;
@@ -19,34 +19,29 @@ import javax.persistence.*;
 @Table(name = "developer_history")
 @Comment(value = "")
 @Alias("developerHistory")
-public class DeveloperHistory extends SimpleJpaModel<Integer> {
+public class DeveloperHistory extends BaseJpaModel<Integer> {
 
 	@Id
 	@Column(name = "NO_HISTORY", precision = 10, nullable = false)
 	@Comment(value = "")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ColumnPosition(1)
 	private Integer noHistory;
 
 	@Column(name = "NO_DEVELOPER", precision = 10, nullable = false)
 	@Comment(value = "개발자번호")
+	@ColumnPosition(3)
 	private Integer noDeveloper;
 
-	@Column(name = "NO_PROJECT", precision = 10, nullable = false)
-	@Comment(value = "프로젝트번호")
-	private Integer noProject;
-
-	@Column(name = "TYPE_DEVELOPER", length = 20, nullable = false)
-	@Comment(value = "개발자유형(계약직, 프리랜서, 업체소속)")
-	private String typeDeveloper;
-
-	@Column(name = "NO_PARTNER", precision = 10)
-	@Comment(value = "소속거래처번호")
-	private Integer noPartner;
+	@Column(name = "NO_DETAIL", precision = 10, nullable = false)
+	@Comment(value = "매출계약상세 번호")
+	@ColumnPosition(5)
+	private Integer noDetail;
 
 	@Column(name = "REMARK", length = 255)
 	@Comment(value = "비고")
+	@ColumnPosition(7)
 	private String remark;
-
 
     @Override
     public Integer getId() {

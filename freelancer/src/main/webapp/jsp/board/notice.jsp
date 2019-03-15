@@ -12,8 +12,8 @@
         <ax:script-lang key="ax.admin" var="COL" />    
         <script type="text/javascript" src="<c:url value='/assets/plugins/ckeditor-4.11.2/ckeditor.js' />"></script>
         <script type="text/javascript" src="<c:url value='/assets/js/view/board/notice.js' />"></script>
-        <script type="text/javascript" src="<c:url value='/assets/plugins/ax5ui-uploader/dist/ax5uploader.min.js' />"></script>
-        <link rel="stylesheet" type="text/css" href="/assets/plugins/ax5ui-uploader/dist/ax5uploader.css" />
+        <!-- <script type="text/javascript" src="<c:url value='/assets/plugins/ax5ui-uploader/dist/ax5uploader.min.js' />"></script>-->
+        <!-- <link rel="stylesheet" type="text/css" href="/assets/plugins/ax5ui-uploader/dist/ax5uploader.css" />-->
         <!-- <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/ax5ui/ax5ui-uploader/master/dist/ax5uploader.css" />-->
 		 <!-- <script type="text/javascript" src="https://cdn.rawgit.com/ax5ui/ax5ui-uploader/master/dist/ax5uploader.min.js"></script>-->
 		 <!-- <script type="text/javascript" src="/assets/plugins/ax5ui-uploader/dist/ax5uploader.min.js"></script>-->

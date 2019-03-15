@@ -20,11 +20,6 @@ var ACTIONS = axboot.actionExtend(fnObj, {
             }
         });
         
-		(function() {
-			$("#formView01").find('[id="panel-free"]').attr("style", "display:block;");
-			$("#formView01").find('[id="panel-partner"]').attr("style", "display:none;");
-		})();
-		
         return false;
     },
     PAGE_SAVE: function (caller, act, data) {

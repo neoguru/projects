@@ -97,7 +97,7 @@
                			             			<ax:lang id="ax.admin.save"/>
                       		   				</button>
                      						</div>
-                 					</div>
+                 						</div>
             					
                 						<ax:form name="formView01">
                 						

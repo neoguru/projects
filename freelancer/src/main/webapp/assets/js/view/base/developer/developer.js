@@ -107,24 +107,23 @@ var ACTIONS = axboot.actionExtend(fnObj, {
 });
 
 fnObj.pageStart = function () {
-	
-	var _this = this;
-	
-	axboot.promise()
-		.then(function (ok) {
-			_this.pageButtonView.initView();
-			_this.searchView.initView();
-			_this.gridView01.initView();
-			_this.formView01.initView();
-			_this.gridView02.initView();
-			
-			ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
-		 })
-		 
-		 	.catch(function () {
+    var _this = this;
+
+    axboot.promise()
+        .then(function (ok) {
+            _this.pageButtonView.initView();
+            _this.searchView.initView();
+            _this.gridView01.initView();
+            _this.gridView02.initView();
+            _this.formView01.initView();
+
+            ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
+        })
+        .catch(function () {
 
         });
 };
+
 
 fnObj.pageResize = function () {
 

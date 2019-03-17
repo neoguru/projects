@@ -25,29 +25,29 @@
                             <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" dataPath="headNmDeveloper" clazz="form-control" placeholder="ax.admin.input.search"/>
                         </ax:td>
                         <ax:td id="headBizArea" label="ax.admin.bizArea" width="240px">
-                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea" emptyText="전체" clazz="form-control inline-block W100"/>
-                             <div id="headEnterpriseArea" style="display:none;">                          
-                          				<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W100" />
-                          				<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W100" />               
-                             </div>         
-                             <div id="headFinanceArea" style="display:none;">    
-                          				<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W100" />
-                          				<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W100" />                    
-                             </div>           
+                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea" emptyText="전체" clazz="form-control inline-block W110"/>
+                       </ax:td>
+                       <ax:td id="headBizAreaDetail"  label="ax.admin.bizArea.detail" width="240px">                        
+               				<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W110"  style="display:none"/>
+                 			<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>     
+                       </ax:td>
+                       <ax:td id="headTaskArea"  label="ax.admin.taskArea" width="240px">      
+               				<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>    
+                 			<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>              
                         </ax:td>
                     </ax:tr>
                     <ax:tr labelWidth="110px">
                         <ax:td label='ax.admin.devLang' width="240px">
-                             <ax:common-code groupCd="DEV_LANG" id="headDevLang" dataPath="headDevLang" emptyText="전체" clazz="form-control inline-block W100"/>       
+                             <ax:common-code groupCd="DEV_LANG" id="headDevLang" dataPath="headDevLang" emptyText="전체" clazz="form-control inline-block W110"/>       
                         </ax:td>
                         <ax:td label='ax.admin.devFrame' width="240px">
-                             <ax:common-code groupCd="DEV_FRAME" id="headDevFrame" dataPath="headDevFrame" emptyText="전체" clazz="form-control inline-block W100"/>       
+                             <ax:common-code groupCd="DEV_FRAME" id="headDevFrame" dataPath="headDevFrame" emptyText="전체" clazz="form-control inline-block W110"/>       
                         </ax:td>
                         <ax:td label='ax.admin.uiTool' width="240px">
-                             <ax:common-code groupCd="UI_TOOL" id="headUiTool" dataPath="headUiTool" emptyText="전체" clazz="form-control inline-block W100"/>       
+                             <ax:common-code groupCd="UI_TOOL" id="headUiTool" dataPath="headUiTool" emptyText="전체" clazz="form-control inline-block W110"/>       
                         </ax:td>
                         <ax:td label='ax.admin.database' width="240px">
-                             <ax:common-code groupCd="DATABASE" id="headDb" dataPath="headDb" emptyText="전체" clazz="form-control inline-block W100"/>       
+                             <ax:common-code groupCd="DATABASE" id="headDb" dataPath="headDb" emptyText="전체" clazz="form-control inline-block W110"/>       
                         </ax:td>
                     </ax:tr>
                 </ax:tbl>
@@ -101,7 +101,7 @@
             					
                 						<ax:form name="formView01">
                 						
-                      					<ax:tbl clazz="ax-form-tbl" minWidth="500px">
+                      						<ax:tbl clazz="ax-form-tbl" minWidth="500px">
                       					
                       							<ax:tr labelWidth="110px">                       					
                       								<ax:td label="ax.admin.developer.noDeveloper" width="240px">
@@ -129,7 +129,7 @@
                                 					<ax:common-code groupCd="YES_NO" dataPath="ynLicense" name="ynLicense" clazz="form-control W110" style="border-color:Orange;"/>
                          							</ax:td>          					
                       								<ax:td label="ax.admin.nmLicense" width="480px">
-                      									<input type="text" name="nmLicense" data-ax-path="nmLicense" class="form-control" value=""  />
+                      									<input type="text" name="nmLicense" data-ax-path="nmLicense" class="form-control" value=""  title="보유자격증명" style="border-color:Orange;"/>
                       								</ax:td>
                       							</ax:tr>
                       					
@@ -165,11 +165,11 @@
                          								<textarea name="remark" data-ax-path="remark" class="form-control" rows="3s"></textarea>
                             						</ax:td>
                       							</ax:tr>         	            					
-                      					</ax:tbl>
+                      						</ax:tbl>
                       					
-                      					<div class="H10"></div>
+                      						<div class="H10"></div>
                       			
-                      					<div class="ax-button-group" role="panel-header">
+                      						<div class="ax-button-group" role="panel-header">
                       							<div class="left">
                       								<h2>
                       									<i class="cqc-news"></i>
@@ -178,7 +178,7 @@
                       							</div>
                       							<div class="right">
                       							</div>
-                      					</div>
+                      						</div>
                       			
                 						</ax:form>
             					</div>
@@ -191,21 +191,21 @@
             	
             			<ax:tab-panel label="ax.admin.developer.information.detail" scroll="scroll" >
             			
-										<ax:form name="formView02">
+							<ax:form name="formView02">
 										
-												<div class="ax-button-group" role="panel-header">
-                            			<div class="left">
+								<div class="ax-button-group" role="panel-header">
+                            		<div class="left">
                                 		<h2>
                                     	<i class="cqc-news"></i>
                                     	<ax:lang id="ax.admin.developer.information.detail"/>
                                 		</h2>
-                            			</div>
-                            			<div class="right">
+                            		</div>
+                            		<div class="right">
                   	    						<button type="button" class="btn btn-default" data-form-view-02-btn="form02-save">
                        		   				<i class="cqc-save"></i>
                		            			<ax:lang id="ax.admin.save"/>
                    		   					</button>
-                            			</div>
+                            		</div>
                         		</div>
 										
                         		<ax:tbl clazz="ax-form-tbl" minWidth="500px">
@@ -215,26 +215,30 @@
                                 			<ax:common-code groupCd="BIZ_AREA" dataPath="bizArea" name="bizArea" type="checkbox"/>
                          					</ax:td>
                             			</ax:tr>
-                            			<ax:tr labelWidth="110px">
-                         					<ax:td label="ax.admin.bizArea.enterprise" width="100%">
-                                			<ax:common-code groupCd="ENTERPRISE_AREA" dataPath="enterpriseArea" name="enterpriseArea" type="checkbox"/>
-                         					</ax:td>
-                            			</ax:tr>
-                            			<ax:tr labelWidth="110px">
-                         					<ax:td label="ax.admin.task.enterprise" width="100%">
-                                			<ax:common-code groupCd="ENTERPRISE_TASK" dataPath="enterpriseTask" name="enterpriseTask" type="checkbox"/>
-                         					</ax:td>
-                            			</ax:tr>
-                            			<ax:tr labelWidth="110px">
-                         					<ax:td label="ax.admin.bizArea.finance" width="100%">
-                                			<ax:common-code groupCd="FINANCE_AREA" dataPath="financeArea" name="financeArea" type="checkbox"/>
-                         					</ax:td>
-                            			</ax:tr>
-                            			<ax:tr labelWidth="110px">
-                         					<ax:td label="ax.admin.task.finance" width="100%">
-                                			<ax:common-code groupCd="FINANCE_TASK" dataPath="financeTask" name="financeTask" type="checkbox"/>
-                         					</ax:td>
-                            			</ax:tr>
+                            			<div id="bodyEnterpriseArea" >
+                            				<ax:tr labelWidth="110px">
+                         						<ax:td label="ax.admin.bizArea.enterprise" width="100%">
+                                					<ax:common-code groupCd="ENTERPRISE_AREA" dataPath="enterpriseArea" name="enterpriseArea" type="checkbox"/>
+                         						</ax:td>
+                            				</ax:tr>
+                            				<ax:tr labelWidth="110px">
+                         						<ax:td label="ax.admin.task.enterprise" width="100%">
+                                					<ax:common-code groupCd="ENTERPRISE_TASK" dataPath="enterpriseTask" name="enterpriseTask" type="checkbox"/>
+                         						</ax:td>
+                            				</ax:tr>                            			
+                            			</div>
+                            			<div id="bodyFinanceArea" >
+                            				<ax:tr labelWidth="110px">
+                         						<ax:td label="ax.admin.bizArea.finance" width="100%">
+                                					<ax:common-code groupCd="FINANCE_AREA" dataPath="financeArea" name="financeArea" type="checkbox"/>
+                         						</ax:td>
+                            				</ax:tr>
+                            				<ax:tr labelWidth="110px">
+                         						<ax:td label="ax.admin.task.finance" width="100%">
+                                					<ax:common-code groupCd="FINANCE_TASK" dataPath="financeTask" name="financeTask" type="checkbox"/>
+                         						</ax:td>
+                            				</ax:tr>
+                            			</div>
                             			<ax:tr labelWidth="110px">
                          					<ax:td label="ax.admin.devLang" width="100%">
                                 			<ax:common-code groupCd="DEV_LANG" dataPath="devLang" name="devLang" type="checkbox"/>
@@ -256,7 +260,7 @@
                          					</ax:td>
                             			</ax:tr>
                         		</ax:tbl>										
-										</ax:form>
+							</ax:form>
             			</ax:tab-panel>
             	
             			<ax:tab-panel label="ax.admin.developer.information.career" scroll="scroll" >

@@ -22,17 +22,27 @@ var ACTIONS = axboot.actionExtend(fnObj, {
         
         return false;
     },
-    PAGE_SAVE: function (caller, act, data) {
-    	
-        if (caller.formView01.validate()) {
-            var developerData = caller.formView01.getData();
+    FORM_CLEAR: function (caller, act, data) {
+        axDialog.confirm({
+        	title: "Confirm", 
+           msg: LANG("ax.script.form.clearconfirm")
+        }, function () {
+            if (this.key == "ok") {
+                ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
+            }
+        });
+    },
+    FORM01_SAVE: function (caller, act, data) {
 
-            developerData.noCompany = SCRIPT_SESSION.noCompany;
+        if (caller.formView01.validate()) {
+        	
+            var developerData = caller.formView01.getData();
             
             axboot.promise()
                 .then(function (ok, fail, data) {
                     axboot.ajax({
-                        type: "PUT", url: "/api/v1/developer", data: JSON.stringify([developerData]),
+                        type: "PUT", url: "/api/v1/developer", 
+                        data: JSON.stringify([developerData]),
                         callback: function (res) {
                             ok(res);
                         	}
@@ -46,16 +56,6 @@ var ACTIONS = axboot.actionExtend(fnObj, {
                 	});
         }
 
-    },
-    FORM_CLEAR: function (caller, act, data) {
-        axDialog.confirm({
-        	title: "Confirm", 
-           msg: LANG("ax.script.form.clearconfirm")
-        }, function () {
-            if (this.key == "ok") {
-                ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
-            }
-        });
     },
     ITEM_CLICK: function (caller, act, data) {
 //        console.log(data);
@@ -124,7 +124,6 @@ fnObj.pageStart = function () {
         });
 };
 
-
 fnObj.pageResize = function () {
 
 };
@@ -165,20 +164,58 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 			this.target.attr("onsubmit", "return ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);");
 			
 			this.headNmDeveloper = $("#headNmDeveloper");
-			
+			this.headBizArea = $("#headBizArea");
+			this.headEnterpriseArea = $("#headEnterpriseArea");
+			this.headFinanceArea = $("#headFinanceArea");
+			this.headEnterpriseTask = $("#headEnterpriseTask");
+			this.headFinanceTask = $("#headFinanceTask");
+
+			this.headDevLang = $("#headDevLang");
+			this.headDevFrame = $("#headDevFrame");
+			this.headUiTool = $("#headUiTool");
+			this.headDb = $("#headDb");
 			this.initEvent();
 
     },
   initEvent: function () {
 	  		var _this = this;
+	  		
+	  		this.model.onChange("headBizArea", function () {
+	            if (this.value == "ENTERPRISE_AREA") {
+	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:block;");
+	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:block;");
+	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:none");
+	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:none");
+	            } else if (this.value == "FINANCE_AREA") {
+	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:block");
+	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:block");
+	            } else  {
+	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:none");
+	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:none");
+	            }
+	        });
     },
   getData: function () {
 	  		return {
 	  				pageNumber: this.pageNumber,
-            pageSize: this.pageSize,
+	  				pageSize: this.pageSize,
 
-            headNmDeveloper: this.headNmDeveloper.val()
-            
+	  				headNmDeveloper: this.headNmDeveloper.val(),
+
+	  				headBizArea : this.headBizArea.val(),
+	  				headEnterpriseArea :  this.headEnterpriseArea.val(),
+	  				headFinanceArea : this.headFinanceArea.val(),
+	  				headEnterpriseTask : this.headEnterpriseTask.val(),
+	  				headFinanceTask : this.headFinanceTask.val(),
+
+	  				headDevLang : this.headDevLang.val(),
+	  				headDevFrame : this.headDevFrame.val(),
+	  				headUiTool : this.headUiTool.val(),
+	  				headDb :  this.headDb.val()
 	  		}
     }
 });
@@ -260,11 +297,11 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
         this.initEvent();
 
         axboot.buttonClick(this, "data-form-view-01-btn", {
-            "form-clear": function () {
+            "form01-clear": function () {
                 ACTIONS.dispatch(ACTIONS.FORM_CLEAR);
             },
-            "partnerModal": function () {
-                ACTIONS.dispatch(ACTIONS.BODYPARTNERMODAL);
+            "form01-save": function () {
+                ACTIONS.dispatch(ACTIONS.FORM01_SAVE);
             },
             "zipFind": function () {
                 ACTIONS.dispatch(ACTIONS.ZIPFIND);
@@ -300,13 +337,20 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
                 return returnValue;
             }
         });
- 
-
     },
     initEvent: function () {
         var _this = this;
         this.setInitValue();
-        
+
+        this.model.onChange("ynLicense", function () {
+            if (this.value == "Y") {
+                _this.target.find('[data-ax-path="nmLicense"]').removeAttr("readonly");
+                _this.target.find('[data-ax-path="nmLicense"]').attr({style:"border-color:Orange;"});
+            } else {
+                _this.target.find('[data-ax-path="nmLicense"]').attr("readonly", "readonly");
+                _this.target.find('[data-ax-path="nmLicense"]').removeAttr("style");
+            }
+        });
     },
     getData: function () {
     	    	
@@ -329,30 +373,16 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
         this.model.set("dtJoin", date);
         
     },
-    setPartnerData: function (data) {
-    	
-        this.model.set("nmPartner", data.nmPartner);
-
-    },
-    setPartnerValue: function (data) {
-    	
-        this.model.set("noPartner", data.noPartner);
-        this.model.set("nmPartner", data.nmPartner);
-
-    },
     setZipValue: function (data) {
         this.model.set("zipCode", data.zipcode);
         this.model.set("address", data.roadAddress);
 
     },
     validate: function () {
+    	
         var rs = this.model.validate();
+        
         if (rs.error) {
-        	/*
-            alert(LANG("ax.script.form.validate", rs.error[0].jquery.attr("title")));
-            rs.error[0].jquery.focus();
-            return false;
-			*/
         	
             axDialog.confirm({
             	title: "Confirm", 
@@ -362,12 +392,24 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
 			
             rs.error[0].jquery.focus();
             return false;
+        } else {
+        	var getData = this.getData();
+        	if (getData.ynLicense == "Y") {
+        		if (!getData.nmLicense) {
+        				 axDialog.confirm({
+        					 title: "Confirm", 
+        					 msg: "자격증명을 입력하세요!"
+        				 }, function () {
+        				 });  
+        				 return false;        			
+        		}
+        	}
         }
         return true;
     },
     clear: function () {
         this.model.setModel(this.getDefaultData());
-        this.target.find('[data-ax-path="key"]').removeAttr("readonly");
+//        this.target.find('[data-ax-path="key"]').removeAttr("readonly");
     }
 });
 

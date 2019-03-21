@@ -24,17 +24,25 @@
                         <ax:td label='ax.admin.nmDeveloper' width="240px">
                             <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" dataPath="headNmDeveloper" clazz="form-control" placeholder="ax.admin.input.search"/>
                         </ax:td>
-                        <ax:td id="headBizArea" label="ax.admin.bizArea" width="240px">
-                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea" emptyText="전체" clazz="form-control inline-block W110"/>
+                        <ax:td  label="ax.admin.bizArea" width="240px">
+                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea"  emptyText="전체" clazz="form-control inline-block W110"/>
                        </ax:td>
-                       <ax:td id="headBizAreaDetail"  label="ax.admin.bizArea.detail" width="240px">                        
-               				<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W110"  style="display:none"/>
-                 			<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>     
-                       </ax:td>
-                       <ax:td id="headTaskArea"  label="ax.admin.taskArea" width="240px">      
-               				<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>    
-                 			<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W110" style="display:none"/>              
-                        </ax:td>
+                       <div id="headBizAreaDetailEnterprise" style="display:none">
+                       		<ax:td label="ax.admin.bizArea.detail" width="240px">                        
+               					<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W110"  />
+                       		</ax:td>   
+                       		<ax:td label="ax.admin.taskArea" width="240px">      
+               					<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W110" />    
+                        	</ax:td>
+                       </div>                   
+                       <div id="headBizAreaDetailFinance" style="display:none">
+                       		<ax:td  label="ax.admin.bizArea.detail" width="240px">                        
+               					<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W110"  />
+                       		</ax:td>   
+                       		<ax:td  label="ax.admin.taskArea" width="240px">      
+               					<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W110" />    
+                        	</ax:td>
+                       </div>     
                     </ax:tr>
                     <ax:tr labelWidth="110px">
                         <ax:td label='ax.admin.devLang' width="240px">
@@ -48,6 +56,12 @@
                         </ax:td>
                         <ax:td label='ax.admin.database' width="240px">
                              <ax:common-code groupCd="DATABASE" id="headDb" dataPath="headDb" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        </ax:td>
+                        <ax:td label='ax.admin.ynCareer' width="240px">
+                             <ax:common-code groupCd="YES_NO" id="headYnCareer" dataPath="headYnCareer" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        </ax:td>
+                        <ax:td label='ax.admin.ynLicense' width="240px">
+                             <ax:common-code groupCd="YES_NO" id="headYnLicense" dataPath="headYnLicense" emptyText="전체" clazz="form-control inline-block W110"/>       
                         </ax:td>
                     </ax:tr>
                 </ax:tbl>
@@ -215,7 +229,7 @@
                                 			<ax:common-code groupCd="BIZ_AREA" dataPath="bizArea" name="bizArea" type="checkbox"/>
                          					</ax:td>
                             			</ax:tr>
-                            			<div id="bodyEnterpriseArea" >
+                            			<div id="bodyEnterpriseArea"  >
                             				<ax:tr labelWidth="110px">
                          						<ax:td label="ax.admin.bizArea.enterprise" width="100%">
                                 					<ax:common-code groupCd="ENTERPRISE_AREA" dataPath="enterpriseArea" name="enterpriseArea" type="checkbox"/>

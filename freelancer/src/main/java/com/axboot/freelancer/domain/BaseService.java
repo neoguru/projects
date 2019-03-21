@@ -16,9 +16,6 @@ import com.axboot.freelancer.domain.scheduler.QScheduler;
 import com.axboot.freelancer.domain.scheduler.repeat.QSchedulerRepeat;
 import com.axboot.freelancer.domain.scheduler.repeat.change.QSchedulerRepeatChange;
 
-
-import com.axboot.freelancer.domain.base.developer.QDeveloper;
-import com.axboot.freelancer.domain.base.developer.history.QDeveloperHistory;
 import com.axboot.freelancer.domain.base.partner.QPartner;
 import com.axboot.freelancer.domain.base.partner.charge.QPartnerCharge;
 import com.axboot.freelancer.domain.base.project.QProject;
@@ -51,8 +48,6 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
     protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
 
-    protected QDeveloper qDeveloper = QDeveloper.developer;
-    protected QDeveloperHistory qDeveloperHistory = QDeveloperHistory.developerHistory;
     protected QPartner qPartner = QPartner.partner;
     protected QPartnerCharge qPartnerCharge = QPartnerCharge.partnerCharge;
     protected QProject qProject = QProject.project;

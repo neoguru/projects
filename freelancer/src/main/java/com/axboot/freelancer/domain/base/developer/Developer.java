@@ -2,7 +2,17 @@ package com.axboot.freelancer.domain.base.developer;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;
 import com.axboot.freelancer.domain.BaseJpaModel;
+import com.axboot.freelancer.domain.base.developer.biz.DeveloperBizArea;
+import com.axboot.freelancer.domain.base.developer.biz.enterprise.DeveloperBizEnterprise;
+import com.axboot.freelancer.domain.base.developer.biz.task.enterprise.DeveloperTaskEnterprise;
+import com.axboot.freelancer.domain.base.developer.biz.finance.DeveloperBizFinance;
+import com.axboot.freelancer.domain.base.developer.biz.task.finance.DeveloperTaskFinance;
+import com.axboot.freelancer.domain.base.developer.career.DeveloperCareer;
+import com.axboot.freelancer.domain.base.developer.dev.db.DeveloperDevDb;
+import com.axboot.freelancer.domain.base.developer.dev.frame.DeveloperDevFrame;
 import com.axboot.freelancer.domain.base.developer.history.DeveloperHistory;
+import com.axboot.freelancer.domain.base.developer.dev.lang.DeveloperDevLang;
+import com.axboot.freelancer.domain.base.developer.dev.uitool.DeveloperDevUitool;
 
 import lombok.*;
 import org.apache.ibatis.type.Alias;
@@ -106,11 +116,51 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(19)
 	private String remark;
 
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperBizArea> bizAreaList;
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperBizEnterprise> bizEnterpriseList;
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperBizFinance> bizFinanceList;
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperTaskEnterprise> taskEnterpriseList;
+	
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperTaskFinance> taskFinanceList;
+/*
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperCareer> careerListq;
+*/
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperDevDb> devDbList;
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperDevFrame> devFrameList;
+
+	@OneToMany
 	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
 	private List<DeveloperHistory> developerHistoryList;
-	
 
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperDevLang> devLangList;
+
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
+	private List<DeveloperDevUitool> devUitoolList;
+	
     @Override
     public Integer getId() {
         return noDeveloper;

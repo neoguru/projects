@@ -8,9 +8,11 @@ var ACTIONS = axboot.actionExtend(fnObj, {
             callback: function (res) {
                 caller.gridView01.setData(res);
                 caller.formView01.clear();
+                caller.formView02.clear();
                 
                 caller.formView01.setInitValue();
-                
+                console.log(res);
+
             },
             options: {
                 // axboot.ajax 함수에 2번째 인자는 필수가 아닙니다. ajax의 옵션을 전달하고자 할때 사용합니다.
@@ -57,26 +59,250 @@ var ACTIONS = axboot.actionExtend(fnObj, {
         }
 
     },
-    ITEM_CLICK: function (caller, act, data) {
-//        console.log(data);
-        caller.formView01.setData(data);
-    },
-    BODYPARTNERMODAL: function (caller, act, data) {
-        axboot.modal.open({
-            modalType: "PARTNER-MODAL",
-            param: "",
-            sendData: function(){
-                return {
-                    "sendData": "purchase"
-                };
-            },
-            callback: function (data) {
-                caller.formView01.setPartnerValue({
-                    noPartner: data.noPartner, nmPartner: data.nmPartner
-                });
-                this.close();
+    FORM02_SAVE: function (caller, act, data) {
+    	
+    	var selectedData = caller.gridView01.getData("selected");
+		if (selectedData.length == 0) {
+				axDialog.confirm({
+    				 title: "Confirm", 
+    				 msg: "개발자를 선택하세요!!"
+    			}, function () {
+    			});  
+    			return false;        			    		
+		}
+    	
+        if (caller.formView02.validate()) {
+        	
+            var developerData = caller.formView02.getData();
+            console.log(developerData);
+            
+         // 업종 bizArea
+            var bizAreaList = [];
+            if (developerData.bizArea) {
+                if (developerData.bizArea.length > 0) {
+                	developerData.bizArea.forEach(function (a) {
+                		bizAreaList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			bizArea: a
+                		});
+                	});
+                }
             }
-        });
+         // 업종 상세 enterpriseArea
+            var bizEnterpriseList = [];
+            if (developerData.enterpriseArea) {
+                if (developerData.enterpriseArea.length > 0) {
+                	developerData.enterpriseArea.forEach(function (b) {
+                		bizEnterpriseList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			enterpriseArea: b
+                		});
+                	});
+                }
+            }
+         // 업종 상세 financeArea
+            var bizFinanceList = [];
+            if (developerData.financeArea) {
+                if (developerData.financeArea.length > 0) {
+                	developerData.financeArea.forEach(function (c) {
+                		bizFinanceList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			financeArea: c
+                		});
+                	});
+                }
+            }
+         //업무영역 enterprise
+            var taskEnterpriseList = [];
+            if (developerData.enterpriseTask) {
+                if (developerData.enterpriseTask.length > 0) {
+                	developerData.enterpriseTask.forEach(function (d) {
+                		taskEnterpriseList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			enterpriseTask: d
+                		});
+                	});
+                }
+            }
+         //업무영역 finance
+            var taskFinanceList = [];
+            if (developerData.financeTask) {
+                if (developerData.financeTask.length > 0) {
+                	developerData.financeTask.forEach(function (e) {
+                		taskFinanceList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			financeTask: e
+                		});
+                	});
+                }
+            }
+         //개발언어
+            var devLangList = [];
+            if (developerData.devLang) {
+                if (developerData.devLang.length > 0) {
+                	developerData.devLang.forEach(function (f) {
+                		devLangList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			devLang: f
+                		});
+                	});
+                }
+            }	
+         //개발프레임워크
+            var devFrameList = [];
+            if (developerData.devFrame) {
+                if (developerData.devFrame.length > 0) {
+                	developerData.devFrame.forEach(function (g) {
+                		devFrameList.push({
+                			noDeveloper: selectedData[0].noDeveloper,
+                			devFrame: g
+                		});
+                	});
+                }
+         }
+         //uiTool
+         var uiToolList = [];
+         if (developerData.uiTool) {
+             if (developerData.uiTool.length > 0) {
+             	developerData.uiTool.forEach(function (h) {
+             		uiToolList.push({
+             			noDeveloper: selectedData[0].noDeveloper,
+             			uiTool: h
+             		});
+             	});
+             }
+         }
+         //database
+         var dbList = [];
+         if (developerData.database) {
+             if (developerData.database.length > 0) {
+             	developerData.database.forEach(function (i) {
+             		dbList.push({
+             			noDeveloper: selectedData[0].noDeveloper,
+             			devDb: i
+             		});
+             	});
+             }
+         }
+         
+         axboot.promise()
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerbizarea",
+         			data: JSON.stringify(bizAreaList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerbizenterprise",
+         			data: JSON.stringify(bizEnterpriseList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerbizfinance",
+         			data: JSON.stringify(bizFinanceList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developertaskenterprise",
+         			data: JSON.stringify(taskEnterpriseList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developertaskfinance",
+         			data: JSON.stringify(taskFinanceList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerdevlang",
+         			data: JSON.stringify(devLangList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerdevframe",
+         			data: JSON.stringify(devFrameList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerdevuitool",
+         			data: JSON.stringify(uiToolList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})
+         	.then(function (ok, fail, data) {
+         		axboot.ajax ({
+         			type: "PUT",
+         			url: "/api/v1/developerdevdb",
+         			data: JSON.stringify(dbList),
+         			callback: function (res) {
+         				ok(res);
+         			}
+         		});
+         	})    
+         	.then(function(ok){
+         		ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
+                axToast.push("개발자 상세정보가 저장 되었습니다");
+         	})
+         	.catch(function() {
+         		
+         	});
+           
+        }
+    },
+    ITEM_CLICK: function (caller, act, data) {
+        console.log(data);
+        caller.formView01.setData(data);
+        caller.formView02.setData(data);
+        
+        if (data.ynLicense == "Y") {
+    		(function() {
+    			$("#formView01").find('[data-ax-path="nmLicense"]').removeAttr("readonly");
+    			$("#formView01").find('[data-ax-path="nmLicense"]').attr({style:"border-color:Orange;"});
+    		})();
+        } else {
+    		(function() {
+    			$("#formView01").find('[data-ax-path="nmLicense"]').attr("readonly", "readonly");
+    			$("#formView01").find('[data-ax-path="nmLicense"]').removeAttr("style");
+    		})();
+        }
+        
     },
     ZIPFIND: function (caller, act, data) {
         axboot.modal.open({
@@ -116,6 +342,7 @@ fnObj.pageStart = function () {
             _this.gridView01.initView();
             _this.gridView02.initView();
             _this.formView01.initView();
+            _this.formView02.initView();
 
             ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);
         })
@@ -162,8 +389,13 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 			this.model.setModel(this.getDefaultData(), this.target);
 			this.modelFormatter = new axboot.modelFormatter(this.model); // 모델 포메터 시작
 			this.target.attr("onsubmit", "return ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);");
-			
+
+			this.initEvent();
+
 			this.headNmDeveloper = $("#headNmDeveloper");
+			this.headYnCareer = $("#headYnCareer");
+			this.headYnLicense = $("#headYnLicense");
+			
 			this.headBizArea = $("#headBizArea");
 			this.headEnterpriseArea = $("#headEnterpriseArea");
 			this.headFinanceArea = $("#headFinanceArea");
@@ -174,28 +406,21 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 			this.headDevFrame = $("#headDevFrame");
 			this.headUiTool = $("#headUiTool");
 			this.headDb = $("#headDb");
-			this.initEvent();
-
+			
     },
   initEvent: function () {
 	  		var _this = this;
 	  		
 	  		this.model.onChange("headBizArea", function () {
 	            if (this.value == "ENTERPRISE_AREA") {
-	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:block;");
-	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:block;");
-	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:none");
-	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:none");
+	            	_this.target.find('[id="headBizAreaDetailEnterprise"]').attr("style", "display:block;");
+	            	_this.target.find('[id="headBizAreaDetailFinance"]').attr("style", "display:none");
 	            } else if (this.value == "FINANCE_AREA") {
-	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:none;");
-	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:none;");
-	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:block");
-	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:block");
+	            	_this.target.find('[id="headBizAreaDetailEnterprise"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headBizAreaDetailFinance"]').attr("style", "display:block");
 	            } else  {
-	            	_this.target.find('[id="headEnterpriseArea"]').attr("style", "display:none;");
-	            	_this.target.find('[id="headEnterpriseTask"]').attr("style", "display:none;");
-	            	_this.target.find('[id="headFinanceArea"]').attr("style", "display:none");
-	            	_this.target.find('[id="headFinanceTask"]').attr("style", "display:none");
+	            	_this.target.find('[id="headBizAreaDetailEnterprise"]').attr("style", "display:none;");
+	            	_this.target.find('[id="headBizAreaDetailFinance"]').attr("style", "display:none");
 	            }
 	        });
     },
@@ -205,6 +430,8 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 	  				pageSize: this.pageSize,
 
 	  				headNmDeveloper: this.headNmDeveloper.val(),
+	  				headYnCareer: this.headYnCareer.val(),
+	  				headYnLicense: this.headYnLicense.val(),
 
 	  				headBizArea : this.headBizArea.val(),
 	  				headEnterpriseArea :  this.headEnterpriseArea.val(),
@@ -216,6 +443,7 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 	  				headDevFrame : this.headDevFrame.val(),
 	  				headUiTool : this.headUiTool.val(),
 	  				headDb :  this.headDb.val()
+	  				
 	  		}
     }
 });
@@ -476,6 +704,135 @@ fnObj.gridView02 = axboot.viewExtend(axboot.gridView, {
     },
     addRow: function () {
         this.target.addRow({__created__: true}, "first");
+    }
+});
+
+/**
+ * formView02
+ */
+fnObj.formView02 = axboot.viewExtend(axboot.formView, {
+    getDefaultData: function () {
+        return $.extend({}, axboot.formView.defaultData, {
+//        	customerPersonal: {},
+//    		customerCorp: {}
+        });
+    },
+    initView: function () {
+    	
+        this.target = $("#formView02");
+        this.model = new ax5.ui.binder();
+        this.model.setModel(this.getDefaultData(), this.target);
+        this.modelFormatter = new axboot.modelFormatter(this.model); // 모델 포메터 시작
+        this.initEvent();
+
+        axboot.buttonClick(this, "data-form-view-02-btn", {
+            "form02-save": function () {
+                ACTIONS.dispatch(ACTIONS.FORM02_SAVE);
+            }
+        });       
+
+    },
+    initEvent: function () {
+        var _this = this;
+    },
+    getData: function () {
+    	    	
+        var data = this.modelFormatter.getClearData(this.model.get()); // 모델의 값을 포멧팅 전 값으로 치환.
+        return $.extend({}, data);
+    },
+    setData: function (data) {
+
+        if (typeof data === "undefined") data = this.getDefaultData();
+        data = $.extend({}, data);
+        
+//        console.log(data);
+      // 업종 bizArea 
+        if (data.bizAreaList) {
+            data.bizArea = [];
+            data.bizAreaList.forEach(function (a) {
+            	data.bizArea.push(a.bizArea);
+            });
+        }
+      // 업종상세 bizEnterprise
+        if (data.bizEnterpriseList) {
+            data.enterpriseArea = [];
+            data.bizEnterpriseList.forEach(function (b) {
+            	data.enterpriseArea.push(b.enterpriseArea);
+            });
+        }
+      // 업종상세 bizFinance
+        if (data.bizFinanceList) {
+            data.financeArea = [];
+            data.bizFinanceList.forEach(function (c) {
+            	data.financeArea.push(c.financeArea);
+            });
+        }
+      // 업무영역 taskEnterprise
+        if (data.taskEnterpriseList) {
+            data.enterpriseTask = [];
+            data.taskEnterpriseList.forEach(function (d) {
+            	data.enterpriseTask.push(d.enterpriseTask);
+            });
+        }
+      // 업무영역 taskFinance
+        if (data.taskFinanceList) {
+            data.financeTask = [];
+            data.taskFinanceList.forEach(function (e) {
+            	data.financeTask.push(e.financeTask);
+            });
+        }
+      // 개발언어  devLang 
+        if (data.devLangList) {
+            data.devLang = [];
+            data.devLangList.forEach(function (f) {
+            	data.devLang.push(f.devLang);
+            });
+        }
+      // 개발프레임워크  devFrame 
+        if (data.devFrameList) {
+            data.devFrame = [];
+            data.devFrameList.forEach(function (g) {
+            	data.devFrame.push(g.devFrame);
+            });
+        }
+      // uiTool  devUitool
+        if (data.devUitoolList) {
+            data.devUitool = [];
+            data.devUitoolList.forEach(function (h) {
+            	data.devUitool.push(h.devUitool);
+            });
+        }
+      // database  devUitool
+        if (data.devDbList) {
+            data.database = [];
+            data.devDbList.forEach(function (i) {
+            	data.database.push(i.devDb);
+            });
+        }
+        
+        this.model.setModel(data);
+        this.modelFormatter.formatting(); // 입력된 값을 포메팅 된 값으로 변경
+    },
+    validate: function () {
+    	
+        var rs = this.model.validate();
+        
+        if (rs.error) {
+        	
+            axDialog.confirm({
+            	title: "Confirm", 
+               msg: LANG("ax.script.form.validate",  rs.error[0].jquery.attr("title"))
+            }, function () {
+            });  
+			
+            rs.error[0].jquery.focus();
+            return false;
+        } 
+        return true;
+    },
+    clear: function () {
+        this.model.setModel(this.getDefaultData());
+//        this.target.find('[data-ax-path="key"]').removeAttr("readonly");
     }
 });
 

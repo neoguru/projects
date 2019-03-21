@@ -1,13 +1,13 @@
 package com.axboot.freelancer.domain.base.developer.history;
 
 import org.springframework.stereotype.Service;
-import com.axboot.freelancer.domain.BaseService;
+import com.axboot.freelancer.domain.base.developer.BaseDeveloperService;
 import javax.inject.Inject;
 import com.chequer.axboot.core.parameter.RequestParams;
 import java.util.List;
 
 @Service
-public class DeveloperHistoryService extends BaseService<DeveloperHistory, Integer> {
+public class DeveloperHistoryService extends BaseDeveloperService<DeveloperHistory, Integer> {
     private DeveloperHistoryRepository developerHistoryRepository;
 
     @Inject

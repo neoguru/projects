@@ -126,7 +126,7 @@
                       								</ax:td>
                      									<ax:td label="ax.admin.noRegist" width="240px">
                      										<input type="text" name="noRegist" data-ax-path="noRegist" class="form-control" data-ax5formatter-custom="noRegist" value="" />
-                     									</ax:td>
+                     								</ax:td>
                       								<ax:td label="ax.admin.dtJoin" width="240px">
                       									<div class="input-group" data-ax5picker="basic">
                       										<input type="text" name="dtJoin" id="dtJoin" data-ax-path="dtJoin" class="form-control" placeholder="yyyy-mm-dd" />
@@ -165,14 +165,14 @@
                           							</ax:td>               	
                       							</ax:tr>
                       					
-         	            							<ax:tr labelWidth="110px">
+         	            						<ax:tr labelWidth="110px">
                           							<ax:td label="ax.admin.address" width="100%">
                             							<input type="text" data-ax-path="zipCode" class="form-control inline-block W100" readonly="readonly"/>
                             							<button class="btn btn-default" data-form-view-01-btn="zipFind"><i class="cqc-magnifier"></i> <ax:lang id="ax.admin.sample.form.find"/></button>
                             							<div class="H5"></div>
                                							<input type="text" data-ax-path="address" class="form-control"/>
                           							</ax:td>
-         	            							</ax:tr>
+         	            						</ax:tr>
          	            					
                       							<ax:tr labelWidth="110px">
                          							<ax:td label="ax.admin.remark" width="100%">
@@ -199,7 +199,7 @@
             			
             					<div id="gridView02">
             							<div data-ax5grid="grid-view-02" data-fit-height-content="form-view-01" style="height: 200px;"></div>
-                    		</div>
+                    			</div>
      	   		  			 
             			</ax:tab-panel>
             	

@@ -40,9 +40,9 @@ public class RequestDetail extends BaseJpaModel<Integer> {
 	@Comment(value = "요청업무(분석/설계/개발/운영)")
 	private String task;
 
-	@Column(name = "HEAD_COUNT", precision = 10, nullable = false)
+	@Column(name = "HEAD_COUNT", length = 3, nullable = false)
 	@Comment(value = "요청인원")
-	private Integer headCount;
+	private String headCount;
 
 	@Column(name = "COST", precision = 10, nullable = false)
 	@Comment(value = "요청단가")

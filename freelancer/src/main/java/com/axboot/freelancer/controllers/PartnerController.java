@@ -28,8 +28,8 @@ public class PartnerController extends BaseController {
     }
 
     @RequestMapping(method = {RequestMethod.PUT}, produces = APPLICATION_JSON)
-    public ApiResponse save(@RequestBody List<Partner> request) {
-        partnerService.save(request);
+    public ApiResponse save(@RequestBody List<Partner> request) throws Exception {
+        partnerService.savePartner(request);
         return ok();
     }
 }

@@ -32,6 +32,22 @@
                 },
                 header: false
             },
+            "PARTNER-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/partner/partner-modal.jsp"
+                },
+                header: false
+            },
+            "PROJECT-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/project/project-modal.jsp"
+                },
+                header: false
+            },
             "COMMON_CODE_MODAL": {
                 width: 600,
                 height: 400,

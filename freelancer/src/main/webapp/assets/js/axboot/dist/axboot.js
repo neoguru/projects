@@ -1676,7 +1676,7 @@ ax5.ui.grid.formatter["bizno"] = function () {
 };
 
 ax5.ui.grid.formatter["phone"] = function () {
-    var val = this.value.replace(/\D/g, "");
+    var val = (this.value || "").replace(/\D/g, "");
     var regExpPattern3 = /^([0-9]{3})\-?([0-9]{1,4})?\-?([0-9]{1,4})?\-?([0-9]{1,4})?\-?([0-9]{1,4})?/,
         returnValue = val.replace(regExpPattern3, function (a, b) {
         var nval = [arguments[1]];

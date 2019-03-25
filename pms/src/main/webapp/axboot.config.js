@@ -32,6 +32,46 @@
                 },
                 header: false
             },
+            "CUSTOMER-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/modal/customer-modal.jsp"
+                },
+                header: false
+            },
+            "PARTNER-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/modal/partner-modal.jsp"
+                },
+                header: false
+            },
+            "PROJECT-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/modal/project-modal.jsp"
+                },
+                header: false
+            },
+            "DEVELOPER-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/modal/developer-modal.jsp"
+                },
+                header: false
+            },
+            "EMPLOYEE-MODAL": {
+                width: 500,
+                height: 500,
+                iframe: {
+                    url: "/jsp/base/modal/employee-modal.jsp"
+                },
+                header: false
+            },
             "COMMON_CODE_MODAL": {
                 width: 600,
                 height: 400,

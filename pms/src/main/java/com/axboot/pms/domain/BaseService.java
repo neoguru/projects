@@ -16,6 +16,13 @@ import com.axboot.pms.domain.scheduler.repeat.QSchedulerRepeat;
 import com.axboot.pms.domain.scheduler.repeat.change.QSchedulerRepeatChange;
 import com.chequer.axboot.core.domain.base.AXBootBaseService;
 import com.chequer.axboot.core.domain.base.AXBootJPAQueryDSLRepository;
+import com.axboot.pms.domain.base.customer.QCustomer;
+import com.axboot.pms.domain.base.customer.charge.QCustomerCharge;
+import com.axboot.pms.domain.base.employee.QEmployee;
+import com.axboot.pms.domain.base.employee.history.QEmployeeHistory;
+import com.axboot.pms.domain.base.partner.QPartner;
+import com.axboot.pms.domain.base.partner.charge.QPartnerCharge;
+import com.axboot.pms.domain.base.project.QProject;
 
 import java.io.Serializable;
 
@@ -37,7 +44,15 @@ public class BaseService<T, ID extends Serializable> extends AXBootBaseService<T
     protected QScheduler qScheduler = QScheduler.scheduler;
     protected QSchedulerRepeat qSchedulerRepeat = QSchedulerRepeat.schedulerRepeat;
     protected QSchedulerRepeatChange qSchedulerRepeatChange = QSchedulerRepeatChange.schedulerRepeatChange;
-    
+
+    protected QEmployee qEmployee = QEmployee.employee;
+    protected QEmployeeHistory qEmployeeHistory = QEmployeeHistory.employeeHistory;
+    protected QCustomer qCustomer = QCustomer.customer;
+    protected QCustomerCharge qCustomerCharge = QCustomerCharge.customerCharge;
+    protected QPartner qPartner = QPartner.partner;
+    protected QPartnerCharge qPartnerCharge = QPartnerCharge.partnerCharge;
+    protected QProject qProject = QProject.project;
+
     protected AXBootJPAQueryDSLRepository<T, ID> repository;
 
     public BaseService() {

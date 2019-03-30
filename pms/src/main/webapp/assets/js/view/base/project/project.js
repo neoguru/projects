@@ -342,13 +342,16 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
 
         if (typeof data === "undefined") data = this.getDefaultData();
         data = $.extend({}, data);
-        
-        if (data.partner){
-            this.model.set("nmPartner", data.partner.nmPartner);
-        }
-        
         this.model.setModel(data);
         this.modelFormatter.formatting(); // 입력된 값을 포메팅 된 값으로 변경
+
+        if (data.customer){
+            this.model.set("nmCustomer", data.customer.nmCustomer);
+        }
+
+        if (data.partner){
+            this.model.set("nmPartner", data.partner.nmPartner);
+        }        
         
     },
     setCustomerValue: function (data) {

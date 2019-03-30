@@ -119,10 +119,10 @@
                       						<ax:tbl clazz="ax-form-tbl" minWidth="500px">
                       					
                       							<ax:tr labelWidth="110px">                       					
-                      								<ax:td label="ax.admin.developer.noDeveloper" width="240px">
+                      								<ax:td label="ax.admin.noDeveloper" width="240px">
                       									<input type="text" name="noDeveloper" data-ax-path="noDeveloper" class="form-control" value="" readonly="readonly" style="text-align:center;"/>
                       								</ax:td>
-                      								<ax:td label="ax.admin.developer.nmDeveloper" width="240px">
+                      								<ax:td label="ax.admin.nmDeveloper" width="240px">
                       									<input type="text" name="nmDeveloper" data-ax-path="nmDeveloper" class="form-control" value="" data-ax-validate="required" title="개발자명"  style="border-color:Orange;"/>
                       								</ax:td>
                      									<ax:td label="ax.admin.noRegist" width="240px">

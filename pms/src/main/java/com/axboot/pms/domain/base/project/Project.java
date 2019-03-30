@@ -2,6 +2,7 @@ package com.axboot.pms.domain.base.project;
 
 import com.chequer.axboot.core.annotations.ColumnPosition;
 import com.axboot.pms.domain.BaseJpaModel;
+import com.axboot.pms.domain.assign.Assign;
 import com.axboot.pms.domain.base.customer.Customer;
 import com.axboot.pms.domain.base.partner.Partner;
 
@@ -12,6 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.chequer.axboot.core.annotations.Comment;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Setter
 @Getter
@@ -78,7 +80,10 @@ public class Project extends BaseJpaModel<Integer> {
 	@ManyToOne
 	@JoinColumn(name="NO_PARTNER_MAIN", referencedColumnName = "NO_PARTNER", nullable = true, insertable = false, updatable = false)
 	private Partner partner;
-	
+
+	@OneToMany
+	@JoinColumn(name="NO_PROJECT", referencedColumnName = "NO_PROJECT", insertable = false, updatable = false)
+	private List<Assign> assignList;
 
     @Override
     public Integer getId() {

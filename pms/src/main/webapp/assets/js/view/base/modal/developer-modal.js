@@ -8,7 +8,7 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     PAGE_SEARCH: function (caller, act, data) {
         axboot.ajax({
             type: "GET",
-            url: "/api/v1/partner",
+            url: "/api/v1/developer",
             data: caller.searchView.getData(),
             callback: function (res) {
 //            	console.log(res);
@@ -92,7 +92,7 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
     initView: function (typePartner) {
         this.target = $(document["searchView0"]);
         this.target.attr("onsubmit", "return ACTIONS.dispatch(ACTIONS.PAGE_SEARCH);");
-        this.headNmPartner = $("#headNmPartner");
+        this.headNmDeveloper = $("#headNmDeveloper");
 //        this.modalType = typePartner;
 //        console.log(this.headCdTeam);
     },
@@ -102,7 +102,7 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
     },
     getData: function () {
         return {
-        	headNmPartner: this.headNmPartner.val()
+        	headNmDeveloper: this.headNmDeveloper.val()
 //            modalType: this.modalType
         }
     }
@@ -121,12 +121,10 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
             frozenColumnIndex: 0,
             target: $('[data-ax5grid="grid-view-01"]'),
             columns: [
-                {key: "noPartner", label: COL("partner.noPartner"), width: 100, align: "center"},
-                {key: "nmPartner", label: COL("partner.nmPartner"), width: 120, align: "center"},
-                {key: "typePartner", label: COL("partner.typePartner"), width: 100, align: "center",  formatter: function () {                	
-                    return parent.COMMON_CODE["TYPE_PARTNER"].map[this.value]
-            		}},
-                {key: "nmCeo", label: COL("nmCeo"), width: 120, align: "center"}
+                {key: "noDeveloper", label: COL("noDeveloper"), width: 100, align: "center"},
+                {key: "nmDeveloper", label: COL("nmDeveloper"), width: 120, align: "center"},
+                {key: "noMobile", label: COL("noMobile"), width: 100, align: "center", formatter: "phone"},
+                {key: "dtJoin", label: COL("dtRegist"), width: 100, align: "center"}
             ],
             body: {
                 onClick: function () {

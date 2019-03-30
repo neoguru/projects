@@ -13,12 +13,12 @@
     <jsp:attribute name="script">
         <ax:script-lang key="ax.script" var="LANG" />
         <ax:script-lang key="ax.admin" var="COL" />
-        <script type="text/javascript" src="<c:url value='/assets/js/view/base/modal/partner-modal.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/assets/js/view/base/modal/developer-modal.js' />"></script>
     </jsp:attribute>
     <jsp:attribute name="header">
         <h1 class="title">
             <i class="cqc-browser"></i>
-            <ax:lang id="ax.admin.partner.modal.title"/>
+            <ax:lang id="ax.admin.developer.modal.title"/>
         </h1>
     </jsp:attribute>
     <jsp:body>
@@ -32,8 +32,8 @@
             <ax:form name="searchView0">
                 <ax:tbl clazz="ax-search-tbl" minWidth="500px">
                     <ax:tr>
-                        <ax:td label='ax.admin.nmPartner' width="300px">
-                            <ax:input type="text" name="headNmPartner" id="headNmPartner" clazz="form-control" placeholder="ax.admin.input.search"/>
+                        <ax:td label='ax.admin.nmDeveloper' width="300px">
+                            <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" clazz="form-control" placeholder="ax.admin.input.search"/>
                         </ax:td>
                     </ax:tr>
                 </ax:tbl>
@@ -47,7 +47,7 @@
                 <div class="ax-button-group" data-fit-height-aside="grid-view-01">
                     <div class="left">
                         <h2><i class="cqc-list"></i>
-                            <ax:lang id="ax.admin.partner.list"/> 
+                            <ax:lang id="ax.admin.developer.list"/> 
                         </h2>
                     </div>
                     <div class="right">

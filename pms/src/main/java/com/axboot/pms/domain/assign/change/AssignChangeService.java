@@ -1,13 +1,13 @@
 package com.axboot.pms.domain.assign.change;
 
 import org.springframework.stereotype.Service;
-import com.axboot.pms.domain.BaseService;
+import com.axboot.pms.domain.assign.BaseAssignService;
 import javax.inject.Inject;
 import com.chequer.axboot.core.parameter.RequestParams;
 import java.util.List;
 
 @Service
-public class AssignChangeService extends BaseService<AssignChange, Integer> {
+public class AssignChangeService extends BaseAssignService<AssignChange, Integer> {
     private AssignChangeRepository assignChangeRepository;
 
     @Inject

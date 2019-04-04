@@ -79,14 +79,9 @@
             		<ax:form name="formView01">
             			<ax:tbl clazz="ax-form-tbl" minWidth="500px">
             				<ax:tr labelWidth="110px"> 
-            					<ax:td label="ax.admin.noProject" width="240px">
+            					<ax:td label="ax.admin.noProject" width="240px"  style="display:none">
             						<input type="text" name="noProject" data-ax-path="noProject" class="form-control" value="" readonly="readonly" style="text-align:center;"/>
             					</ax:td>
-            					<ax:td label="ax.admin.nmProject" width="480px">
-            						<input type="text" name="nmProject" data-ax-path="nmProject" class="form-control" value="" data-ax-validate="required" title="프로젝트명"  style="border-color:Orange;"/>
-            					</ax:td>
-            				</ax:tr>
-            				<ax:tr labelWidth="110px"> 
                         		<ax:td label='ax.admin.customer' width="480px" id="bodyCustomer">
                             		<input type="text" data-ax-path="noCustomer" id="noCustomer" class="form-control inline-block W110" readonly="readonly" style="border-color:Orange;"/>
                             		<button title="지우기" type="button" class="btn btn-default" data-form-view-01-btn="body-customer-clear">
@@ -98,6 +93,11 @@
                            				<ax:lang id="ax.admin.search"/>
                            			</button>
                         		</ax:td>
+            				</ax:tr>
+            				<ax:tr labelWidth="110px"> 
+            					<ax:td label="ax.admin.nmProject" width="480px">
+            						<input type="text" name="nmProject" data-ax-path="nmProject" class="form-control" value="" data-ax-validate="required" title="프로젝트명"  style="border-color:Orange;"/>
+            					</ax:td>
                         		<ax:td label='ax.admin.project.partner.main' width="480px" id="bodyPartnerMain">
                             		<input type="text" data-ax-path="noPartnerMain" id="noPartnerMain" class="form-control inline-block W110" readonly="readonly" />
                             		<button title="지우기" type="button" class="btn btn-default" data-form-view-01-btn="body-partner-clear">

@@ -119,7 +119,7 @@
                       						<ax:tbl clazz="ax-form-tbl" minWidth="500px">
                       					
                       							<ax:tr labelWidth="110px">                       					
-                      								<ax:td label="ax.admin.noDeveloper" width="240px">
+                      								<ax:td label="ax.admin.noDeveloper" width="240px" style="display:none">
                       									<input type="text" name="noDeveloper" data-ax-path="noDeveloper" class="form-control" value="" readonly="readonly" style="text-align:center;"/>
                       								</ax:td>
                       								<ax:td label="ax.admin.nmDeveloper" width="240px">
@@ -133,15 +133,15 @@
                       										<input type="text" name="dtJoin" id="dtJoin" data-ax-path="dtJoin" class="form-control" placeholder="yyyy-mm-dd" />
                       										<span class="input-group-addon"><i class="cqc-calendar"></i></span>
                       									</div>
-                      								</ax:td>  
+                      								</ax:td>                  					
+                      								<ax:td label="ax.admin.ynCareer" width="240px">
+                                						<ax:common-code groupCd="YES_NO" dataPath="ynCareer" name="ynCareer" clazz="form-control W110" style="border-color:Orange;"/>
+                         							</ax:td>
                       							</ax:tr>
                       					
-                      							<ax:tr labelWidth="110px">                       					
-                      								<ax:td label="ax.admin.ynCareer" width="240px">
-                                					<ax:common-code groupCd="YES_NO" dataPath="ynCareer" name="ynCareer" clazz="form-control W110" style="border-color:Orange;"/>
-                         							</ax:td>
+                      							<ax:tr labelWidth="110px">       
                       								<ax:td label="ax.admin.ynLicense" width="240px">
-                                					<ax:common-code groupCd="YES_NO" dataPath="ynLicense" name="ynLicense" clazz="form-control W110" style="border-color:Orange;"/>
+                                						<ax:common-code groupCd="YES_NO" dataPath="ynLicense" name="ynLicense" clazz="form-control W110" style="border-color:Orange;"/>
                          							</ax:td>          					
                       								<ax:td label="ax.admin.nmLicense" width="480px">
                       									<input type="text" name="nmLicense" data-ax-path="nmLicense" class="form-control" value=""  title="보유자격증명" style="border-color:Orange;"/>

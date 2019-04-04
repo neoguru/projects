@@ -74,8 +74,8 @@
             		<ax:form name="formView01">
             			<ax:tbl clazz="ax-form-tbl" minWidth="500px">
             				<ax:tr labelWidth="110px"> 
-            					<ax:td label="ax.admin.noCustomer" width="240px">
-            						<input type="text" name="noCustomer" data-ax-path="noCustomer" class="form-control" value="" readonly="readonly" style="text-align:center;"/>
+            					<ax:td label="ax.admin.noCustomer" width="240px" style="display:none">
+            						<input type="text" name="noCustomer" data-ax-path="noCustomer" class="form-control" value="" readonly="readonly" />
             					</ax:td>
             					<ax:td label="ax.admin.nmCustomer" width="240px">
             						<input type="text" name="nmCustomer" data-ax-path="nmCustomer" class="form-control" value="" data-ax-validate="required" title="고객명"  style="border-color:Orange;"/>

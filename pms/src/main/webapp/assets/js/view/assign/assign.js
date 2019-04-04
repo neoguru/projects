@@ -105,20 +105,27 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     		
     		caller.gridView02.addRow();
     		caller.gridView02.updateRow(addData, 0);
+        	caller.formView01.clear();
 
     	}
     	
     },
     FORM01_APPLY: function (caller, act, data) {
     	
-//    	var index = parseInt(caller.gridView02.getData("selected").__index);
-//    	console.log(index);
+//    	var index = parseInt(caller.gridView02.getData("selected")[0].__index);
+    	var ccc = caller.gridView02.getData();
+    	var ddd = caller.gridView02.getData("selected");
+    	var index = caller.gridView02.getData("selected").__index;
+    	console.log(ccc);
+    	console.log(ddd);
+    	console.log(index);
 
     	var index = parseInt(caller.gridView02.getData("selected")[0].__index);
     	
     	if (caller.formView01.validate()) {    	
     		var updateData = caller.formView01.getData();    		
     		caller.gridView02.updateRow(updateData, index);    		
+        	caller.formView01.clear();
     	}
     },
     FORM01_DEL: function (caller, act, data) {
@@ -168,6 +175,14 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     	    		return false;
     			}
     		}
+    	}
+    	if (!validateData.inputGrade) {
+            axDialog.confirm({
+            	title: "Confirm", 
+               msg: "개발자 투입등급을 선택하세요!"
+            }, function () {
+            });  
+    		return false;
     	}
     	if (!validateData.typeAdjust) {
             axDialog.confirm({
@@ -251,7 +266,7 @@ var ACTIONS = axboot.actionExtend(fnObj, {
         });
     },
     GRID01_CLICK: function (caller, act, data) {
-//        console.log(data);
+        console.log(data);
 //        caller.formView01.setData(data);
         caller.gridView02.setData(data.assignList);
         
@@ -262,7 +277,7 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     	
     },
     GRID02_CLICK: function (caller, act, data) {
-//      console.log(data);
+      console.log(data);
 //      caller.formView01.setData(data);
       caller.formView01.setData(data);
       
@@ -495,7 +510,7 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
         var _this = this;
 
   		this.model.onChange("typeDeveloper", function () {
-            if (this.value == "PTR") {
+            if (this.value == "PARTNER") {
             	_this.target.find('[id="noPartner"]').attr("style", "border-color:Orange;");
             	_this.target.find('[id="nmPartner"]').attr("style", "border-color:Orange;");
             	_this.target.find('[id="bodyPartnerModal"]').attr("style", "border-color:Orange;");
@@ -526,6 +541,18 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
   			
   			var data = ACTIONS.dispatch(ACTIONS.GET_FORM01_DATA);
   			if (data.dtInput) {
+  	  			var dtTarget = new Date(this.value);
+  	  			var dtInput = new Date(data.dtInput);  	  			
+  				if (dtTarget.compareTo(dtInput) == 1) {
+  					ACTIONS.dispatch(ACTIONS.SET_TARGETMM_VALUE, getMM(dtInput, dtTarget));
+  				}
+  			}
+  		});
+
+  		this.model.onChange("typeAdjust", function () {
+  			
+  			var data = ACTIONS.dispatch(ACTIONS.GET_FORM01_DATA);
+  			if (data.typePayment) {
   	  			var dtTarget = new Date(this.value);
   	  			var dtInput = new Date(data.dtInput);  	  			
   				if (dtTarget.compareTo(dtInput) == 1) {

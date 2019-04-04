@@ -196,7 +196,7 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
                 {key: "noPartner", label: COL("noPartner"), width: 0, align: "center"},
                 {key: "nmPartner", label: COL("nmPartner"), width: 140, align: "center"},
                 {key: "nmCeo", label: COL("nmCeo"), width: 100, align: "center"},
-                {key: "noTel", label: COL("noTel"), width: 100, align: "center", formatter: "phone"},
+                {key: "noLicense", label: COL("noLicense"), width: 100, align: "center", formatter: "bizno"},
                 {key: "ynTrade", label: COL("ynTrade"), width: 100, align: "center", formatter: function () {                	
                     return parent.COMMON_CODE["YES_NO"].map[this.value]
             	}}

@@ -78,7 +78,7 @@
             		<ax:form name="formView01">
             			<ax:tbl clazz="ax-form-tbl" minWidth="500px">
             				<ax:tr labelWidth="110px"> 
-            					<ax:td label="ax.admin.noPartner" width="240px">
+            					<ax:td label="ax.admin.noPartner" width="240px" style="display:none">
             						<input type="text" name="noPartner" data-ax-path="noPartner" class="form-control" value="" readonly="readonly" style="text-align:center;"/>
             					</ax:td>
             					<ax:td label="ax.admin.nmPartner" width="240px">
@@ -87,8 +87,6 @@
         						<ax:td label="ax.admin.partner.typePartner" width="240px">
                            	 		<ax:common-code groupCd="TYPE_PARTNER" id="typePartner" dataPath="typePartner" clazz="form-control W120" style="border-color:Orange;"/>
                         		</ax:td>
-            				</ax:tr>
-            				<ax:tr labelWidth="110px"> 
                       			<ax:td label="ax.admin.noLicense" width="240px">
                             		<div class="input-group">
                                 		<input type="text" name="noLicense" data-ax-path="noLicense" class="form-control" data-ax5formatter="bizno" style="text-align:center;"/>                                	
@@ -99,16 +97,10 @@
                                 		<input type="text" name="noCorp" data-ax-path="noCorp" class="form-control" data-ax5formatter-custom="noCorp" style="text-align:center;"/>                                	
                             		</div>
                             	</ax:td>
-            					<ax:td label="ax.admin.noTel" width="240px">
-            						<input type="text" name="noTel" data-ax-path="noTel" class="form-control" value="" data-ax5formatter="phone" />
-            					</ax:td>
-            					<ax:td label="ax.admin.noFax" width="240px">
-            						<input type="text" name="noFax" data-ax-path="noFax" class="form-control" value="" data-ax5formatter="phone" />
-            					</ax:td>
             				</ax:tr>
             				<ax:tr labelWidth="110px"> 
             					<ax:td label="ax.admin.nmCeo" width="240px">
-            						<input type="text" name="nmCeo" data-ax-path="nmCeo" class="form-control" value="" />
+            						<input type="text" name="nmCeo" data-ax-path="nmCeo" class="form-control" value="" data-ax-validate="required" title="대표자명"  style="border-color:Orange;"/>
             					</ax:td>
             					<ax:td label="ax.admin.noMobile.ceo" width="240px">
             						<input type="text" name="mobileCeo" data-ax-path="mobileCeo" class="form-control" value="" data-ax5formatter="phone" />
@@ -118,9 +110,17 @@
             					</ax:td>
             				</ax:tr>
             				<ax:tr labelWidth="110px"> 
+            					<ax:td label="ax.admin.noTel" width="240px">
+            						<input type="text" name="noTel" data-ax-path="noTel" class="form-control" value="" data-ax5formatter="phone" />
+            					</ax:td>
+            					<ax:td label="ax.admin.noFax" width="240px">
+            						<input type="text" name="noFax" data-ax-path="noFax" class="form-control" value="" data-ax5formatter="phone" />
+            					</ax:td>
             					<ax:td label="ax.admin.ynTrade" width="240px">
             						<ax:common-code groupCd="YES_NO" dataPath="ynTrade" name="ynTrade" clazz="form-control W110" style="border-color:Orange;"/>
             					</ax:td>
+            				</ax:tr>
+            				<ax:tr labelWidth="110px"> 
             					<ax:td label="ax.admin.nmBank" width="240px">
             						<input type="text" name="nmBank" data-ax-path="nmBank" class="form-control" value="" />
             					</ax:td>

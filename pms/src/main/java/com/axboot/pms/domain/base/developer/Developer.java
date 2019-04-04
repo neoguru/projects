@@ -75,9 +75,14 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(15)
 	private String address;
 
+	@Column(name = "YN_CONTRACTED", length = 1, nullable = false)
+	@Comment(value = "전문계약직여부")
+	@ColumnPosition(17)
+	private String ynContracted;
+
 	@Column(name = "YN_INVOLVED", length = 1, nullable = false)
 	@Comment(value = "프로젝트 참여여부(현재)")
-	@ColumnPosition(17)
+	@ColumnPosition(18)
 	private String ynInvolved;
 
 	@Column(name = "YN_CAREER", length = 1, nullable = false)

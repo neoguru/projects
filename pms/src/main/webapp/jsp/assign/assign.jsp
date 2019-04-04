@@ -128,6 +128,9 @@
                            				<ax:lang id="ax.admin.search"/>
                            			</button>
                         		</ax:td>
+                        		<ax:td  label="ax.admin.inputGrade" width="240px">
+                             		<ax:common-code groupCd="GRADE" id="inputGrade" dataPath="inputGrade"  emptyText="선택" clazz="form-control inline-block W110" style="border-color:Orange;"/>
+                       			</ax:td>
             				</ax:tr>
             				<ax:tr labelWidth="110px"> 
                   				<ax:td label="ax.admin.dtInput" width="240px">

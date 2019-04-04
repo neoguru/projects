@@ -467,10 +467,16 @@ fnObj.gridView01 = axboot.viewExtend(axboot.gridView, {
             multipleSelect: false,
             target: $('[data-ax5grid="grid-view-01"]'),
             columns: [
-                {key: "noDeveloper", label: COL("noDeveloper"), width: 100, align: "center"},
-                {key: "nmDeveloper", label: COL("nmDeveloper"), width: 120, align: "center"},
-                {key: "dtJoin", label: COL("dtRegist"), width: 90, align: "center"}, 
-                {key: "noMobile", label: COL("noMobile"), width: 100, align: "center", formatter: "phone"}
+                {key: "noDeveloper", label: COL("noDeveloper"), width: 0, align: "center"},
+                {key: "nmDeveloper", label: COL("nmDeveloper"), width: 100, align: "center"},
+                {key: "noMobile", label: COL("noMobile"), width: 100, align: "center", formatter: "phone"},
+                {key: "ynCareer", label: COL("ynCareer_1"), width: 80, align: "center",  formatter: function () {                	
+                    return parent.COMMON_CODE["YES_NO"].map[this.value]
+                }},  
+                {key: "ynLicense", label: COL("ynLicense_1"), width: 80, align: "center",  formatter: function () {                	
+                    return parent.COMMON_CODE["YES_NO"].map[this.value]
+                }},  
+                {key: "dtJoin", label: COL("dtRegist"), width: 90, align: "center"}
             ],
             body: {
                 onClick: function () {

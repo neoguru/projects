@@ -112,15 +112,8 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     },
     FORM01_APPLY: function (caller, act, data) {
     	
-//    	var index = parseInt(caller.gridView02.getData("selected")[0].__index);
-    	var ccc = caller.gridView02.getData();
-    	var ddd = caller.gridView02.getData("selected");
-    	var index = caller.gridView02.getData("selected").__index;
-    	console.log(ccc);
-    	console.log(ddd);
-    	console.log(index);
-
     	var index = parseInt(caller.gridView02.getData("selected")[0].__index);
+//    	console.log(index);
     	
     	if (caller.formView01.validate()) {    	
     		var updateData = caller.formView01.getData();    		
@@ -236,7 +229,14 @@ var ACTIONS = axboot.actionExtend(fnObj, {
             },
             callback: function (data) {
                 caller.formView01.setDeveloperValue({
-                    noDeveloper: data.noDeveloper, nmDeveloper: data.nmDeveloper
+                    noDeveloper: data.noDeveloper, 
+                    nmDeveloper: data.nmDeveloper,
+                    ynContracted: data.ynContracted,
+                    grade: data.grade,
+                    cost: data.cost,
+                    typeAdjust: data.typeAdjust,
+                    typePayment: data.typePayment,
+                    targetPayment: data.targetPayment
                 });
                 this.close();
             }
@@ -267,7 +267,8 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     },
     GRID01_CLICK: function (caller, act, data) {
         console.log(data);
-//        caller.formView01.setData(data);
+        caller.formView01.clear();
+        caller.gridView02.clearSelect();
         caller.gridView02.setData(data.assignList);
         
         $("#formView01Button").find('[data-form-view-01-btn="form01-clear"]').removeAttr("disabled", "disabled");
@@ -578,8 +579,17 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
         
     },
     setDeveloperValue: function (data) {    	
+
         this.model.set("noDeveloper", data.noDeveloper);
         this.model.set("nmDeveloper", data.nmDeveloper);
+        if (data.ynContracted == "Y") {
+        	this.model.set("typeDeveloper", "CONTRACTED");
+        	this.model.set("inputGrade", data.grade);
+        	this.model.set("costInput", data.cost);
+        	this.model.set("typeAdjust", data.typeAdjust);
+        	this.model.set("typePayment", data.typePayment);
+        	this.model.set("targetPayment", data.targetPayment);
+        }
     },
     setPartnerValue: function (data) {    	
         this.model.set("noPartner", data.noPartner);

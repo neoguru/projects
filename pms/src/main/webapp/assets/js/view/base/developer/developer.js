@@ -302,6 +302,16 @@ var ACTIONS = axboot.actionExtend(fnObj, {
     			$("#formView01").find('[data-ax-path="nmLicense"]').removeAttr("style");
     		})();
         }
+
+        if (data.ynContracted == "Y") {
+    		(function() {
+    			$("#formView01").find('[id="contractedValue"]').attr("style", "display:block;");
+    		})();
+        } else {
+    		(function() {
+    			$("#formView01").find('[id="contractedValue"]').attr("style", "display:none");
+    		})();
+        }
         
     },
     ZIPFIND: function (caller, act, data) {
@@ -340,7 +350,7 @@ fnObj.pageStart = function () {
             _this.pageButtonView.initView();
             _this.searchView.initView();
             _this.gridView01.initView();
-            _this.gridView02.initView();
+ //           _this.gridView02.initView();
             _this.formView01.initView();
             _this.formView02.initView();
 
@@ -585,6 +595,13 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
                 _this.target.find('[data-ax-path="nmLicense"]').removeAttr("style");
             }
         });
+        this.model.onChange("ynContracted", function () {
+            if (this.value == "Y") {
+                _this.target.find('[id="contractedValue"]').attr("style", "display:block;");
+            } else {
+                _this.target.find('[id="contractedValue"]').attr("style", "display:none");
+            }
+        });
     },
     getData: function () {
     	    	
@@ -603,8 +620,8 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
     },
     setInitValue: function () {
 
-        var date = Date.today(). toString("yyyy-MM-dd");
-        this.model.set("dtJoin", date);
+//        var date = Date.today(). toString("yyyy-MM-dd");
+        this.model.set("ynContracted", "N");
         
     },
     setZipValue: function (data) {

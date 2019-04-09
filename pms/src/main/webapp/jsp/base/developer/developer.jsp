@@ -24,6 +24,9 @@
                         <ax:td label='ax.admin.nmDeveloper' width="240px">
                             <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" dataPath="headNmDeveloper" clazz="form-control" placeholder="ax.admin.input.search"/>
                         </ax:td>
+                        <ax:td  label="ax.admin.typeDeveloper" width="240px">
+                             <ax:common-code groupCd="TYPE_DEVELOPER" id="headTypeDeveloper" dataPath="headTypeDeveloper"  emptyText="전체" clazz="form-control inline-block W110"/>
+                       </ax:td>
                         <ax:td  label="ax.admin.bizArea" width="240px">
                              <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea"  emptyText="전체" clazz="form-control inline-block W110"/>
                        </ax:td>

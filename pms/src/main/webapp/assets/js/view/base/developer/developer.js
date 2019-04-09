@@ -403,6 +403,7 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 			this.initEvent();
 
 			this.headNmDeveloper = $("#headNmDeveloper");
+			this.headTypeDeveloper = $("#headTypeDeveloper");
 			this.headYnCareer = $("#headYnCareer");
 			this.headYnLicense = $("#headYnLicense");
 			
@@ -440,6 +441,7 @@ fnObj.searchView = axboot.viewExtend(axboot.searchView, {
 	  				pageSize: this.pageSize,
 
 	  				headNmDeveloper: this.headNmDeveloper.val(),
+	  				headTypeDeveloper: this.headTypeDeveloper.val(),
 	  				headYnCareer: this.headYnCareer.val(),
 	  				headYnLicense: this.headYnLicense.val(),
 

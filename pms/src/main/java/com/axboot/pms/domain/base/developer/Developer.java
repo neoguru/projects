@@ -45,104 +45,129 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(3)
 	private String nmDeveloper;
 
+	@Column(name = "TYPE_DEVELOPER", length = 10, nullable = false)
+	@Comment(value = "개발자구분(정규직,전문계약직,프리랜서,업체소속)")
+	@ColumnPosition(5)
+	private String typeDeveloper;
+
+	@Column(name = "NO_PARTNER", precision = 10)
+	@Comment(value = "거래처번호")
+	@ColumnPosition(7)
+	private Integer noPartner;
+
+	@Column(name = "DT_BIRTH")
+	@Comment(value = "생년월일")
+	@ColumnPosition(9)
+	private LocalDate dtBirth;
+
+	@Column(name = "GENDER", length =10)
+	@Comment(value = "성별")
+	@ColumnPosition(11)
+	private String gender;
+
 	@Column(name = "NO_REGIST", length = 20)
 	@Comment(value = "주민등록번호")
-	@ColumnPosition(5)
+	@ColumnPosition(13)
 	private String noRegist;
 
-	@Column(name = "NO_MOBILE", length = 20)
-	@Comment(value = "휴대폰번호")
-	@ColumnPosition(7)
-	private String noMobile;
-
-	@Column(name = "EMAIL", length = 100)
-	@Comment(value = "이메일주소")
-	@ColumnPosition(9)
-	private String email;
-
-	@Column(name = "ZIP_CODE", length = 10)
-	@Comment(value = "우편번호")
-	@ColumnPosition(11)
-	private String zipCode;
-
-	@Column(name = "ADDRESS", length = 255)
-	@Comment(value = "집주소")
-	@ColumnPosition(13)
-	private String address;
-
-	@Column(name = "YN_INVOLVED", length = 1, nullable = false)
-	@Comment(value = "프로젝트 참여여부(현재)")
+	@Column(name = "DT_JOIN")
+	@Comment(value = "정규직 입사일자")
 	@ColumnPosition(15)
-	private String ynInvolved;
+	private LocalDate dtJoin;
 
-	@Column(name = "YN_CAREER", length = 1, nullable = false)
-	@Comment(value = "경력증빙가능여부")
+	@Column(name = "NO_DEPARTMENT", precision = 10)
+	@Comment(value = "부서번호")
+	@ColumnPosition(16)
+	private Integer noDepartment;
+
+	@Column(name = "YN_RETIRE", length = 1, nullable = false)
+	@Comment(value = "정규직 퇴사여부")
 	@ColumnPosition(17)
-	private String ynCareer;
+	private String ynRetire;
+
+	@Column(name = "DT_RETIRE")
+	@Comment(value = "정규직 퇴사일자")
+	@ColumnPosition(19)
+	private LocalDate dtRetire;
+
+	@Column(name = "DT_CAREER", nullable = false)
+	@Comment(value = "경력시작일")
+	@ColumnPosition(21)
+	private LocalDate dtCareer;
+
+	@Column(name = "DEGREE", length = 20, nullable = false)
+	@Comment(value = "최종학력")
+	@ColumnPosition(23)
+	private String degree;
 
 	@Column(name = "YN_LICENSE", length = 1, nullable = false)
 	@Comment(value = "자격증보유여부")
-	@ColumnPosition(19)
+	@ColumnPosition(25)
 	private String ynLicense;
 
 	@Column(name = "NM_LICENSE", length = 100)
 	@Comment(value = "자격증명")
-	@ColumnPosition(21)
+	@ColumnPosition(27)
 	private String nmLicense;
 
-	@Column(name = "NO_EMPLOYEE", precision = 10)
-	@Comment(value = "사원번호")
-	@ColumnPosition(23)
-	private Integer noEmployee;
-
-	@Column(name = "YN_JOIN", length = 1, nullable = false)
-	@Comment(value = "합류여부")
-	@ColumnPosition(25)
-	private String ynJoin;
-
-	@Column(name = "DT_JOIN", nullable = false)
-	@Comment(value = "합류일자(첫프로젝트일자)")
-	@ColumnPosition(27)
-	private LocalDate dtJoin;
-
-	@Column(name = "YN_CONTRACTED", length = 1, nullable = false)
-	@Comment(value = "전문계약직 여부")
+	@Column(name = "DT_LICENSE")
+	@Comment(value = "자격증 취득일")
 	@ColumnPosition(29)
-	private String ynContracted;
+	private LocalDate dtLicense;
 
-	@Column(name = "DT_CONTRACTED", nullable = false)
-	@Comment(value = "전문계약직 계약일자")
+	@Column(name = "YN_KOSA", length = 1, nullable = false)
+	@Comment(value = "KOSA경력증빙여부")
 	@ColumnPosition(31)
-	private LocalDate dtContracted;
+	private String ynKosa;
 
-	@Column(name = "GRADE", length = 10, nullable = false)
-	@Comment(value = "전문계약직 계약등급")
+	@Column(name = "GRADE_KOSA", length = 10)
+	@Comment(value = "KOSA등급")
 	@ColumnPosition(33)
-	private String grade;
+	private String gradeKosa;
 
-	@Column(name = "COST", precision = 10, nullable = false)
-	@Comment(value = "투입단가")
+	@Column(name = "DT_KOSA")
+	@Comment(value = "KOSA취득일자")
 	@ColumnPosition(35)
-	private Integer cost;
+	private LocalDate dtKosa;
 
-	@Column(name = "TYPE_ADJUST", length = 10, nullable = false)
-	@Comment(value = "정산기준(말일, MM)")
+	@Column(name = "GRADE_COST", length = 10)
+	@Comment(value = "원가등급")
 	@ColumnPosition(37)
-	private String typeAdjust;
+	private String gradeCost;
 
-	@Column(name = "TYPE_PAYMENT", length = 10, nullable = false)
-	@Comment(value = "지급유형(10영업일, 특정일)")
+	@Column(name = "GRADE_CAREER", length = 10)
+	@Comment(value = "경력기준등급")
 	@ColumnPosition(39)
-	private String typePayment;
+	private String gradeCareer;
 
-	@Column(name = "TARGET_PAYMENT", length = 10, nullable = false)
-	@Comment(value = "지급예정일")
+	@Column(name = "CD_POSITION", length = 20)
+	@Comment(value = "직급")
 	@ColumnPosition(41)
-	private String targetPayment;
+	private String cdPosition;
+
+	@Column(name = "NO_MOBILE", length = 20)
+	@Comment(value = "휴대폰번호")
+	@ColumnPosition(43)
+	private String noMobile;
+
+	@Column(name = "EMAIL", length = 100)
+	@Comment(value = "이메일주소")
+	@ColumnPosition(45)
+	private String email;
+
+	@Column(name = "ZIP_CODE", length = 10)
+	@Comment(value = "우편번호")
+	@ColumnPosition(47)
+	private String zipCode;
+
+	@Column(name = "ADDRESS", length = 255)
+	@Comment(value = "집주소")
+	@ColumnPosition(49)
+	private String address;
 
 	@Column(name = "REMARK", length = 255)
 	@Comment(value = "비고")
-	@ColumnPosition(43)
+	@ColumnPosition(51)
 	private String remark;
 
 	@OneToMany
@@ -184,7 +209,11 @@ public class Developer extends BaseJpaModel<Integer> {
 	@OneToMany
 	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", insertable = false, updatable = false)
 	private List<DeveloperDevUitool> devUitoolList;
-
+/*
+	@OneToMany
+	@JoinColumn(name="NO_DEVELOPER", referencedColumnName = "NO_DEVELOPER", nullable = true,  insertable = false, updatable = false)
+	private List<DeveloperContracted> devContList;
+*/
     @Override
     public Integer getId() {
         return noDeveloper;

@@ -22,7 +22,8 @@ public class DeveloperService extends BaseDeveloperService<Developer, Integer> {
     public List<Developer> gets(RequestParams<Developer> requestParams) {
 		
 		String nmDeveloper = requestParams.getString("headNmDeveloper");
-		String ynCareer = requestParams.getString("headYnCareer");
+		String typeDeveloper = requestParams.getString("headTypeDeveloper");
+		String ynKosa = requestParams.getString("headYnKosa");
 		String ynLicense = requestParams.getString("headYnLicense");
 		
 		String bizArea = requestParams.getString("headBizArea");
@@ -43,8 +44,12 @@ public class DeveloperService extends BaseDeveloperService<Developer, Integer> {
   	 		builder.and(qDeveloper.nmDeveloper.like(Expressions.asString("%").concat(nmDeveloper).concat("%")));
         }
 
-		if (isNotEmpty(ynCareer)){
-  	 		builder.and(qDeveloper.ynCareer.eq(ynCareer));
+		if (isNotEmpty(typeDeveloper)){
+  	 		builder.and(qDeveloper.typeDeveloper.eq(typeDeveloper));
+        }
+
+		if (isNotEmpty(ynKosa)){
+  	 		builder.and(qDeveloper.ynKosa.eq(ynKosa));
         }
 
 		if (isNotEmpty(ynLicense)){

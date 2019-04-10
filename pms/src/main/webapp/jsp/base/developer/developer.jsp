@@ -20,51 +20,51 @@
         <div role="page-header">
             <ax:form name="searchView0">
                 <ax:tbl clazz="ax-search-tbl" minWidth="500px">
-                    <ax:tr labelWidth="110px">
-                        <ax:td label='ax.admin.nmDeveloper' width="240px">
-                            <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" dataPath="headNmDeveloper" clazz="form-control" placeholder="ax.admin.input.search"/>
+                    <ax:tr labelWidth="100px">
+                        <ax:td label='ax.admin.nmDeveloper' width="220px">
+                            <ax:input type="text" name="headNmDeveloper" id="headNmDeveloper" dataPath="headNmDeveloper" clazz="form-control inline-block W100"/>
                         </ax:td>
-                        <ax:td  label="ax.admin.typeDeveloper" width="240px">
-                             <ax:common-code groupCd="TYPE_DEVELOPER" id="headTypeDeveloper" dataPath="headTypeDeveloper"  emptyText="전체" clazz="form-control inline-block W110"/>
+                        <ax:td  label="ax.admin.typeDeveloper" width="220px">
+                             <ax:common-code groupCd="TYPE_DEVELOPER" id="headTypeDeveloper" dataPath="headTypeDeveloper"  emptyText="전체" clazz="form-control inline-block W100"/>
                        </ax:td>
-                        <ax:td  label="ax.admin.bizArea" width="240px">
-                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea"  emptyText="전체" clazz="form-control inline-block W110"/>
+                        <ax:td label='ax.admin.ynKosa' width="220px">
+                             <ax:common-code groupCd="YES_NO" id="headYnKosa" dataPath="headYnKosa" emptyText="전체" clazz="form-control inline-block W100"/>       
+                        </ax:td>
+                        <ax:td label='ax.admin.ynLicense' width="220px">
+                             <ax:common-code groupCd="YES_NO" id="headYnLicense" dataPath="headYnLicense" emptyText="전체" clazz="form-control inline-block W100"/>       
+                        </ax:td>
+                    </ax:tr>
+                    <ax:tr labelWidth="100px">
+                        <ax:td  label="ax.admin.bizArea" width="220px">
+                             <ax:common-code groupCd="BIZ_AREA" id="headBizArea" dataPath="headBizArea"  emptyText="전체" clazz="form-control inline-block W100"/>
                        </ax:td>
                        <div id="headBizAreaDetailEnterprise" style="display:none">
-                       		<ax:td label="ax.admin.bizArea.detail" width="240px">                        
-               					<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W110"  />
+                       		<ax:td label="ax.admin.bizArea.detail" width="220px">                        
+               					<ax:common-code groupCd="ENTERPRISE_AREA" id="headEnterpriseArea" dataPath="headEnterpriseArea" emptyText="전체" clazz="form-control inline-block W100"  />
                        		</ax:td>   
-                       		<ax:td label="ax.admin.taskArea" width="240px">      
-               					<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W110" />    
+                       		<ax:td label="ax.admin.taskArea" width="220px">      
+               					<ax:common-code groupCd="ENTERPRISE_TASK" id="headEnterpriseTask" dataPath="headEnterpriseTask" emptyText="전체" clazz="form-control inline-block W100" />    
                         	</ax:td>
                        </div>                   
                        <div id="headBizAreaDetailFinance" style="display:none">
-                       		<ax:td  label="ax.admin.bizArea.detail" width="240px">                        
-               					<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W110"  />
+                       		<ax:td  label="ax.admin.bizArea.detail" width="220px">                        
+               					<ax:common-code groupCd="FINANCE_AREA" id="headFinanceArea" dataPath="headFinanceArea" emptyText="전체" clazz="form-control inline-block W100"  />
                        		</ax:td>   
-                       		<ax:td  label="ax.admin.taskArea" width="240px">      
-               					<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W110" />    
+                       		<ax:td  label="ax.admin.taskArea" width="220px">      
+               					<ax:common-code groupCd="FINANCE_TASK" id="headFinanceTask" dataPath="headFinanceTask" emptyText="전체" clazz="form-control inline-block W100" />    
                         	</ax:td>
                        </div>     
-                    </ax:tr>
-                    <ax:tr labelWidth="110px">
-                        <ax:td label='ax.admin.devLang' width="240px">
-                             <ax:common-code groupCd="DEV_LANG" id="headDevLang" dataPath="headDevLang" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        <ax:td label='ax.admin.devLang' width="220px">
+                             <ax:common-code groupCd="DEV_LANG" id="headDevLang" dataPath="headDevLang" emptyText="전체" clazz="form-control inline-block W100"/>       
                         </ax:td>
-                        <ax:td label='ax.admin.devFrame' width="240px">
-                             <ax:common-code groupCd="DEV_FRAME" id="headDevFrame" dataPath="headDevFrame" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        <ax:td label='ax.admin.devFrame' width="220px">
+                             <ax:common-code groupCd="DEV_FRAME" id="headDevFrame" dataPath="headDevFrame" emptyText="전체" clazz="form-control inline-block W100"/>       
                         </ax:td>
-                        <ax:td label='ax.admin.uiTool' width="240px">
-                             <ax:common-code groupCd="UI_TOOL" id="headUiTool" dataPath="headUiTool" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        <ax:td label='ax.admin.uiTool' width="220px">
+                             <ax:common-code groupCd="UI_TOOL" id="headUiTool" dataPath="headUiTool" emptyText="전체" clazz="form-control inline-block W100"/>       
                         </ax:td>
-                        <ax:td label='ax.admin.database' width="240px">
-                             <ax:common-code groupCd="DATABASE" id="headDb" dataPath="headDb" emptyText="전체" clazz="form-control inline-block W110"/>       
-                        </ax:td>
-                        <ax:td label='ax.admin.ynCareer' width="240px">
-                             <ax:common-code groupCd="YES_NO" id="headYnCareer" dataPath="headYnCareer" emptyText="전체" clazz="form-control inline-block W110"/>       
-                        </ax:td>
-                        <ax:td label='ax.admin.ynLicense' width="240px">
-                             <ax:common-code groupCd="YES_NO" id="headYnLicense" dataPath="headYnLicense" emptyText="전체" clazz="form-control inline-block W110"/>       
+                        <ax:td label='ax.admin.database' width="220px">
+                             <ax:common-code groupCd="DATABASE" id="headDb" dataPath="headDb" emptyText="전체" clazz="form-control inline-block W100"/>       
                         </ax:td>
                     </ax:tr>
                 </ax:tbl>
@@ -73,7 +73,7 @@
         </div>
 
         <ax:split-layout name="ax1" orientation="vertical">
-            <ax:split-panel width="30%" style="padding-right: 10px;">
+            <ax:split-panel width="32%" style="padding-right: 10px;">
 
                 <!-- 목록 -->
                 <div class="ax-button-group" data-fit-height-aside="grid-view-01">
@@ -126,78 +126,106 @@
                       								</ax:td>
                       								<ax:td label="ax.admin.nmDeveloper" width="240px">
                       									<input type="text" name="nmDeveloper" data-ax-path="nmDeveloper" class="form-control" value="" data-ax-validate="required" title="개발자명"  style="border-color:Orange;"/>
-                      								</ax:td>
-                     									<ax:td label="ax.admin.noRegist" width="240px">
-                     										<input type="text" name="noRegist" data-ax-path="noRegist" class="form-control" data-ax5formatter-custom="noRegist" value=""  title="주민등록번호"  />
-                     								</ax:td>   					
-                      								<ax:td label="ax.admin.developer.ynJoin" width="240px">
-                                						<ax:common-code groupCd="YES_NO" dataPath="ynJoin" name="ynJoin" clazz="form-control W110" emptyText="선택"  style="border-color:Orange;"/>
-                         							</ax:td>     		
-                      								<ax:td label="ax.admin.dtJoin_1" width="240px">
+                      								</ax:td>				
+                      								<ax:td label="ax.admin.typeDeveloper" width="240px">
+                                						<ax:common-code groupCd="TYPE_DEVELOPER" dataPath="typeDeveloper" name="typeDeveloper" clazz="form-control W110" style="border-color:Orange;"/>
+                         							</ax:td>     			
+                      								<ax:td label="ax.admin.dtBirth" width="240px">
                       									<div class="input-group" data-ax5picker="basic">
-                      										<input type="text" name="dtJoin" id="dtJoin" data-ax-path="dtJoin" class="form-control" placeholder="yyyy-mm-dd" title="합류일자" />
+                      										<input type="text" name="dtBirth" id="dtBirth" data-ax-path="dtBirth" class="form-control" placeholder="yyyy-mm-dd" title="생년월일" />
                       										<span class="input-group-addon"><i class="cqc-calendar"></i></span>
                       									</div>
-                      								</ax:td>                
+                      								</ax:td>                 			    	
+                      								<ax:td label="ax.admin.gender" width="240px">
+                                						<ax:common-code groupCd="GENDER" dataPath="gender" name="gender" clazz="form-control W110" emptyText="선택"   />
+                         							</ax:td>      
                       							</ax:tr>
                       					
-                      							<ax:tr labelWidth="110px">       			
-                      								<ax:td label="ax.admin.ynCareer" width="240px">
-                                						<ax:common-code groupCd="YES_NO" dataPath="ynCareer" name="ynCareer" clazz="form-control W110" style="border-color:Orange;"/>
-                         							</ax:td>
-                      								<ax:td label="ax.admin.ynLicense" width="240px">
-                                						<ax:common-code groupCd="YES_NO" dataPath="ynLicense" name="ynLicense" clazz="form-control W110" style="border-color:Orange;"/>
-                         							</ax:td>          					
-                      								<ax:td label="ax.admin.nmLicense" width="240px">
-                      									<input type="text" name="nmLicense" data-ax-path="nmLicense" class="form-control" value=""  title="보유자격증명" style="border-color:Orange;"/>
-                      								</ax:td>
-                      							</ax:tr>
-                      					
-                      							<ax:tr labelWidth="110px">           
+                      							<ax:tr labelWidth="110px">             			    	
+                      								<ax:td label="ax.admin.position" width="240px">
+                                						<ax:common-code groupCd="POSITION" dataPath="position" name="position" clazz="form-control W110" emptyText="선택"   />
+                         							</ax:td>             
                       								<ax:td label="ax.admin.noMobile" width="240px">
                       									<input type="text" name="noMobile" data-ax-path="noMobile" class="form-control" data-ax5formatter="phone" value="" title="개발자 휴대폰번호" />
                       								</ax:td>
-                          							<ax:td label="ax.admin.email" width="240px">
+                          							<ax:td label="ax.admin.email" width="480px">
                       									<input type="text" name="email" data-ax-path="email" class="form-control" value="" title="개발자 이메일주소" />
                       								</ax:td>
-                      								<ax:td label="ax.admin.nmBank" width="240px">
-                      									<input type="text" name="nmBank" data-ax-path="nmBank" class="form-control" value="" title="은행명" />
-                      								</ax:td>      
-                          							<ax:td label="ax.admin.noAccount" width="240px">
-                      									<input type="text" name="noAccount" data-ax-path="noAccount" class="form-control" value="" title="계좌번호" />
-                          							</ax:td>               	
+                      							</ax:tr>
+                      					
+                      							<ax:tr labelWidth="110px" id="regular_developer">                  			    	
+                      								<ax:td label="ax.admin.department" width="240px">
+                                						<ax:common-code groupCd="GENDER" dataPath="gender" name="gender" clazz="form-control W110" emptyText="선택"   />
+                         							</ax:td>             
+                      								<ax:td label="ax.admin.dtJoin" width="240px">
+                      									<div class="input-group" data-ax5picker="basic">
+                      										<input type="text" name="dtJoin" id="dtJoin" data-ax-path="dtJoin" class="form-control" placeholder="yyyy-mm-dd" title="입사일자" />
+                      										<span class="input-group-addon"><i class="cqc-calendar"></i></span>
+                      									</div>
+                      								</ax:td>        			    	
+                      								<ax:td label="ax.admin.ynRetire" width="240px">
+                                						<ax:common-code groupCd="YES_NO" dataPath="ynRetire" name="ynRetire" clazz="form-control W110" emptyText="선택"  style="border-color:Orange;"/>
+                         							</ax:td>     		
+                      								<ax:td label="ax.admin.dtRetire" width="240px" style="display:none">
+                      									<div class="input-group" data-ax5picker="basic" >
+                      										<input type="text" name="dtRetire" id="dtRetire" data-ax-path="dtRetire" class="form-control" placeholder="yyyy-mm-dd" title="퇴사일자" style="border-color:Orange;"/>
+                      										<span class="input-group-addon"   style="border-color:Orange;"><i class="cqc-calendar" ></i></span>
+                      									</div>
+                      								</ax:td>                    			    		
+                      							</ax:tr>
+                      							
+                      							<ax:tr labelWidth="110px" id="partner_developer"  style="display:none">
+                        							<ax:td label='ax.admin.developer.partner' width="480px" id="bodyPartner" >
+                            							<input type="text" data-ax-path="noPartner" id="noPartner" class="form-control inline-block W100" readonly="readonly" >
+                            							<button title="지우기" type="button" id="bodyPartnerErase" class="btn btn-default" data-form-view-01-btn="body-partner-clear" >
+                               								<i class="cqc-erase"></i>    
+                            							</button>
+                           								<input type="text" data-ax-path="nmPartner" id="nmPartner" class="form-control inline-block W120" readonly="readonly" ">
+                           								<button title="거래처팝업" type="button" id="bodyPartnerModal" class="btn btn-default" data-form-view-01-btn="body-partner-modal"  >
+                           									<i class="cqc-magnifier"></i> 
+                           									<ax:lang id="ax.admin.search"/>
+                           								</button>
+                        							</ax:td>
+                      							</ax:tr>
+                      							
+                      							<ax:tr labelWidth="110px">      
+                      								<ax:td label="ax.admin.dtCareer" width="240px" >
+                      									<div class="input-group" data-ax5picker="basic" >
+                      										<input type="text" name="dtCareer" id="dtCareer" data-ax-path="dtCareer" class="form-control" placeholder="yyyy-mm-dd" title="경력시작일자" style="border-color:Orange;"/>
+                      										<span class="input-group-addon"   style="border-color:Orange;"><i class="cqc-calendar" ></i></span>
+                      									</div>
+                      								</ax:td>            			           		
+                      								<ax:td label="ax.admin.degree" width="240px">
+                                						<ax:common-code groupCd="DEGREE" dataPath="degree" name="degree" clazz="form-control W110" emptyText="선택" style="border-color:Orange;"/>
+                         							</ax:td>          	        		
+                      								<ax:td label="ax.admin.ynKosa" width="240px">
+                                						<ax:common-code groupCd="YES_NO" dataPath="ynKosa" name="ynKosa" clazz="form-control W110" emptyText="선택" style="border-color:Orange;"/>
+                         							</ax:td>      
+                      								<ax:td label="ax.admin.dtKosa" width="240px" >
+                      									<div class="input-group" data-ax5picker="basic" >
+                      										<input type="text" name="dtKosa" id="dtKosa" data-ax-path="dtKosa" class="form-control" placeholder="yyyy-mm-dd" title="KOSA취득일자" />
+                      										<span class="input-group-addon" ><i class="cqc-calendar" ></i></span>
+                      									</div>
+                      								</ax:td>            			           		
                       							</ax:tr>
                       					
                       							<ax:tr labelWidth="110px">       			
-                      								<ax:td label="ax.admin.ynContracted" width="240px">
-                                						<ax:common-code groupCd="YES_NO" dataPath="ynContracted" name="ynContracted" clazz="form-control W110" style="border-color:Orange;"/>
+                      								<ax:td label="ax.admin.ynLicense" width="240px">
+                                						<ax:common-code groupCd="YES_NO" dataPath="ynLicense" name="ynLicense" clazz="form-control W110" emptyText="선택" style="border-color:Orange;"/>
                          							</ax:td>
-                         							<div id ="contractedValue" >		
-                      									<ax:td label="ax.admin.contract.dtContract" width="240px">
-                      										<div class="input-group" data-ax5picker="basic">
-                      											<input type="text" name="dtContracted" id="dtContracted" data-ax-path="dtContracted" class="form-control" placeholder="yyyy-mm-dd" title="전문계약직 계약일자" style="border-color:Orange;"/>
-                      											<span class="input-group-addon"><i class="cqc-calendar"></i></span>
-                      										</div>
-                      									</ax:td>                
-                      									<ax:td label="ax.admin.grade_1" width="240px" >
-                                							<ax:common-code groupCd="GRADE" dataPath="grade" name="grade" clazz="form-control W110" emptyText="선택" style="border-color:Orange;"/>
-                         								</ax:td>          					
-                     									<ax:td label="ax.admin.cost_1" width="240px">
-                     										<input type="text" name="cost" data-ax-path="cost" class="form-control" value="" data-ax5formatter="money" title="전문계약직 계약단가" style="text-align:right;border-color:Orange;"/>
-                     									</ax:td>         		
-                         							</div>
+                      								<ax:td label="ax.admin.typeLicense" width="240px">
+                                						<ax:common-code groupCd="TYPE_LICENSE" dataPath="typeLicense" name="typeLicense" clazz="form-control W110" emptyText="선택" style="border-color:Orange;"/>
+                         							</ax:td>         
+                      								<ax:td label="ax.admin.dtLicense" width="240px" >
+                      									<div class="input-group" data-ax5picker="basic" >
+                      										<input type="text" name="dtLicense" id="dtLicense" data-ax-path="dtLicense" class="form-control" placeholder="yyyy-mm-dd" title="자격증취득일자"/>
+                      										<span class="input-group-addon" ><i class="cqc-calendar" ></i></span>
+                      									</div>
+                      								</ax:td>         	
+                      								<ax:td label="ax.admin.grade.career" width="240px">
+                                						<ax:common-code groupCd="GRADE" dataPath="gradeCareer" name="gradeCareer" clazz="form-control W110" emptyText=" "  />
+                         							</ax:td>   			
                       							</ax:tr>
-            									<ax:tr labelWidth="110px" id ="contractedValue" style="display:none">
-                        							<ax:td  label="ax.admin.typeAdjust" width="240px">
-                             							<ax:common-code groupCd="TYPE_ADJUST" id="typeAdjust" dataPath="typeAdjust"  emptyText="선택" clazz="form-control inline-block W110" style="border-color:Orange;"/>
-                       								</ax:td>
-                        							<ax:td  label="ax.admin.typePayment" width="240px">
-                             							<ax:common-code groupCd="TYPE_PAYMENT" id="typePayment" dataPath="typePayment"  emptyText="선택" clazz="form-control inline-block W110" style="border-color:Orange;"/>
-                       								</ax:td>
-                        							<ax:td  label="ax.admin.targetPayment" width="240px">
-                             							<ax:common-code groupCd="DAY" id="targetPayment" dataPath="targetPayment"  emptyText="선택" clazz="form-control inline-block W110" style="border-color:Orange;"/>
-                       								</ax:td>
-            									</ax:tr>
                       					
          	            						<ax:tr labelWidth="110px">
                           							<ax:td label="ax.admin.address" width="100%">
@@ -216,8 +244,8 @@
                       						</ax:tbl>
                       					
                       						<div class="H10"></div>
-                      					<!--  
-                      						<div class="ax-button-group" role="panel-header">
+                      					
+                      						<div class="ax-button-group" role="panel-header" id="contracted_developer" style="display:none">
                       							<div class="left">
                       								<h2>
                       									<i class="cqc-news"></i>
@@ -227,14 +255,14 @@
                       							<div class="right">
                       							</div>
                       						</div>
-                      				-->
+                      				
                 						</ax:form>
             					</div>
-            				<!--  
-            					<div id="gridView02">
+            				 
+            					<div id="gridView02" style="display:none">
             							<div data-ax5grid="grid-view-02" data-fit-height-content="form-view-01" style="height: 200px;"></div>
                     			</div>
-     	   		  			 -->
+     	   		  			
             			</ax:tab-panel>
             	
             			<ax:tab-panel label="ax.admin.developer.information.detail" scroll="scroll" >

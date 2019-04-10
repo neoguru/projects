@@ -583,6 +583,7 @@ fnObj.formView01 = axboot.viewExtend(axboot.formView, {
                 return returnValue;
             }
         });
+        this.target.find('[data-ax-path="gradeCareer"]').attr("disabled", "disabled");
     },
     initEvent: function () {
         var _this = this;

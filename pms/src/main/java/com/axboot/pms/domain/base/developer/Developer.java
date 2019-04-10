@@ -45,7 +45,7 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(3)
 	private String nmDeveloper;
 
-	@Column(name = "TYPE_DEVELOPER", length = 10, nullable = false)
+	@Column(name = "TYPE_DEVELOPER", length = 20, nullable = false)
 	@Comment(value = "개발자구분(정규직,전문계약직,프리랜서,업체소속)")
 	@ColumnPosition(5)
 	private String typeDeveloper;
@@ -64,12 +64,12 @@ public class Developer extends BaseJpaModel<Integer> {
 	@Comment(value = "성별")
 	@ColumnPosition(11)
 	private String gender;
-
+/*
 	@Column(name = "NO_REGIST", length = 20)
 	@Comment(value = "주민등록번호")
 	@ColumnPosition(13)
 	private String noRegist;
-
+*/
 	@Column(name = "DT_JOIN")
 	@Comment(value = "정규직 입사일자")
 	@ColumnPosition(15)
@@ -105,10 +105,10 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(25)
 	private String ynLicense;
 
-	@Column(name = "NM_LICENSE", length = 100)
-	@Comment(value = "자격증명")
+	@Column(name = "TYPE_LICENSE", length = 20)
+	@Comment(value = "자격증구분")
 	@ColumnPosition(27)
-	private String nmLicense;
+	private String typeLicense;
 
 	@Column(name = "DT_LICENSE")
 	@Comment(value = "자격증 취득일")
@@ -120,7 +120,7 @@ public class Developer extends BaseJpaModel<Integer> {
 	@ColumnPosition(31)
 	private String ynKosa;
 
-	@Column(name = "GRADE_KOSA", length = 10)
+	@Column(name = "GRADE_KOSA", length = 20)
 	@Comment(value = "KOSA등급")
 	@ColumnPosition(33)
 	private String gradeKosa;
@@ -129,21 +129,21 @@ public class Developer extends BaseJpaModel<Integer> {
 	@Comment(value = "KOSA취득일자")
 	@ColumnPosition(35)
 	private LocalDate dtKosa;
-
-	@Column(name = "GRADE_COST", length = 10)
+/*
+	@Column(name = "GRADE_COST", length = 20)
 	@Comment(value = "원가등급")
 	@ColumnPosition(37)
 	private String gradeCost;
-
-	@Column(name = "GRADE_CAREER", length = 10)
+*/
+	@Column(name = "GRADE_CAREER", length = 20)
 	@Comment(value = "경력기준등급")
 	@ColumnPosition(39)
 	private String gradeCareer;
 
-	@Column(name = "CD_POSITION", length = 20)
+	@Column(name = "POSITION", length = 20)
 	@Comment(value = "직급")
 	@ColumnPosition(41)
-	private String cdPosition;
+	private String position;
 
 	@Column(name = "NO_MOBILE", length = 20)
 	@Comment(value = "휴대폰번호")
